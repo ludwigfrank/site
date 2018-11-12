@@ -1,0 +1,52 @@
+{
+    "name": "gatsby-starter-default",
+    "description": "Gatsby default starter",
+    "version": "1.0.0",
+    "author": "Ludwig Frank <mail@ludwigfrank.com>",
+    "dependencies": {
+        "@babel/plugin-transform-typescript": "^7.1.0",
+        "@mdx-js/mdx": "latest",
+        "@mdx-js/tag": "latest",
+        "core-js": "^2.5.7",
+        "gatsby": "^2.0.46",
+        "gatsby-image": "latest",
+        "gatsby-link": "^2.0.6",
+        "gatsby-mdx": "latest",
+        "gatsby-plugin-catch-links": "^2.0.2",
+        "gatsby-plugin-manifest": "^2.0.2",
+        "gatsby-plugin-offline": "^2.0.5",
+        "gatsby-plugin-react-helmet": "^3.0.0",
+        "gatsby-plugin-sharp": "latest",
+        "gatsby-plugin-styled-components": "^3.0.1",
+        "gatsby-remark-copy-linked-files": "^2.0.6",
+        "gatsby-remark-images": "^2.0.5",
+        "gatsby-remark-prismjs": "^3.0.0",
+        "gatsby-source-filesystem": "latest",
+        "gatsby-transformer-remark": "latest",
+        "gatsby-transformer-sharp": "latest",
+        "prismjs": "^1.15.0",
+        "react": "^16.6.0",
+        "react-dom": "^16.6.0",
+        "react-helmet": "^5.2.0",
+        "styled-components": "^4.0.2",
+        "styled-system": "^3.1.11"
+    },
+    "keywords": [
+        "gatsby"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build": "gatsby build",
+        "develop": "gatsby develop",
+        "format": "prettier --write '**/*.js'",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "babel-plugin-styled-components": "^1.7.1",
+        "prettier": "^1.14.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    }
+}
