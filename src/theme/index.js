@@ -9,16 +9,24 @@ import { THEME_ACTIVE, THEME_DARK } from './constants'
 import { ThemeProvider } from 'styled-components'
 
 export const extractActiveThemeColor = (themeColorObject, activeTheme) => {
-    if (typeof themeColorObject !== 'object') throw new Error('Theme should only consist of objects!')
+    if (typeof themeColorObject !== 'object')
+        throw new Error('Theme should only consist of objects!')
     const style = {}
     mapValues(themeColorObject, (category, categoryName) => {
         style[categoryName] = {}
         mapValues(category, (color, colorName) => {
-            const c =  themeColorObject[categoryName][colorName][activeTheme]
+            const c = themeColorObject[categoryName][colorName][activeTheme]
             style[categoryName][colorName] = () => {
                 if (typeof c === 'string') return c
                 // Todo: Transform all colors to hsl
-                if (Array.isArray(c)) return c.map((val, index) => index !== 0 ? (index === 1 ? val + '%,' : val + '%' ) : val + ',')
+                if (Array.isArray(c))
+                    return c.map((val, index) =>
+                        index !== 0
+                            ? index === 1
+                                ? val + '%,'
+                                : val + '%'
+                            : val + ','
+                    )
             }
         })
     })
@@ -26,9 +34,9 @@ export const extractActiveThemeColor = (themeColorObject, activeTheme) => {
     return style
 }
 
-const col = extractActiveThemeColor(color, THEME_ACTIVE )
+const col = extractActiveThemeColor(color, THEME_ACTIVE)
 col.category = {
-    dark: extractActiveThemeColor(color, THEME_DARK)
+    dark: extractActiveThemeColor(color, THEME_DARK),
 }
 
 const getTheme = (themeId = THEME_ACTIVE) => {
@@ -38,8 +46,8 @@ const getTheme = (themeId = THEME_ACTIVE) => {
         shadow,
         spacing,
         animation,
-        space: [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ],
-        breakpoints: ['480px', '840px', spacing.contentMaxWidth]
+        space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+        breakpoints: ['480px', '840px', spacing.contentMaxWidth],
     }
 }
 

@@ -17,23 +17,8 @@ module.exports = {
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-                name: `images`,
-                path: `${__dirname}/src/images`,
-            },
-        },
-        {
-            resolve: `gatsby-source-filesystem`,
-            options: {
+                name: 'articles',
                 path: `${__dirname}/src/pages`,
-            },
-        },
-        {
-            resolve: `gatsby-mdx`,
-            options: {
-                extensions: ['.mdx', '.md'],
-                defaultLayouts: {
-                    default: require.resolve('./src/layouts/post-layout.js'),
-                },
             },
         },
         {
@@ -57,5 +42,14 @@ module.exports = {
         'gatsby-plugin-offline',
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
+        {
+            resolve: `gatsby-mdx`,
+            options: {
+                extensions: ['.mdx'],
+                defaultLayouts: {
+                    default: require.resolve('./src/layouts/post-layout.js'),
+                },
+            },
+        },
     ],
 }

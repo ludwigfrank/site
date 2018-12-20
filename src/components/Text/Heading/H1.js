@@ -4,7 +4,9 @@ import defaultStyles from '../defaultStyles'
 
 const Styles = styled('h1')`
     ${defaultStyles};
-    font-size: 36px;
+    font-size: 60px;
+    font-family: 'FoundersGrotesk-Regular';
+    padding-bottom: -4px;
 `
 
 const H1 = props => {

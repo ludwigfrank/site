@@ -1,13 +1,9 @@
 import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
 import withTheme from '../theme'
 import Navigation from '../components/Navigation'
-
-const ContentWrapper = styled('div')`
-    margin-top: 64px;
-`
+import Footer from '$components/Footer'
 
 export default withTheme(({ children }) => {
     return (
@@ -23,6 +19,7 @@ export default withTheme(({ children }) => {
             </Helmet>
             <Navigation />
             {children}
+            <Footer />
         </Fragment>
     )
 })

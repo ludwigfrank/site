@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import React, { PureComponent } from 'react'
+import defaultStyles from '../Text/defaultStyles'
 
+import Logo from './logo'
 import { Link } from 'gatsby'
 import HeadRoom from './util/HeadRoom'
 
@@ -29,6 +31,14 @@ const Left = styled('div')`
 const Right = styled('div')`
     float: right;
     display: inline-block;
+`
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    ${defaultStyles}
+    font-size: 16px;
+    margin-left: 24px;
+    opacity: 0.65;
 `
 
 const links = [
@@ -65,9 +75,9 @@ class Navigation extends PureComponent {
 
     renderLinks = links => {
         return links.map(link => (
-            <Link to={link.href} key={link.name}>
+            <StyledLink to={link.href} key={link.name}>
                 {link.name}
-            </Link>
+            </StyledLink>
         ))
     }
 
@@ -81,7 +91,7 @@ class Navigation extends PureComponent {
                     <InnerWrapper>
                         <Left>
                             <Link to={'/'} key={'/'}>
-                                Link
+                                <Logo mt={'5px'} />
                             </Link>
                         </Left>
                         <Right>{this.renderLinks(links)}</Right>

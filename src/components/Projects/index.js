@@ -1,21 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-
-import ContentWrapper from '../../components/Layout/ContentWrapper'
+import ContentWrapper from '$components/Layout/ContentWrapper'
+import ProjectList from './ProjectList'
 
 export default class Projects extends Component {
-    renderProjects = () => {
-        const { projects } = this.props
-        return projects.map(project => {
-            const id = project.node.id
-            const { date, description, title, team } = project.node.exports.meta
-            return <div key={id}>{title}</div>
-        })
-    }
-
     render() {
-        return <ContentWrapper>{this.renderProjects()}</ContentWrapper>
+        return (
+            <ContentWrapper mt={6}>
+                <ProjectList projects={this.props.projects} />
+            </ContentWrapper>
+        )
     }
 }
 

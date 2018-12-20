@@ -5,10 +5,15 @@ export default {
     text: {
         primary: {
             [THEME_DARK]: '#fffdfd',
-            [THEME_LIGHT]: '#1B2733',
+            [THEME_LIGHT]: '#131a21',
         },
 
         secondary: {
+            [THEME_DARK]: 'rgba(0,0,0,.84)',
+            [THEME_LIGHT]: 'rgba(0,0,0,.84)',
+        },
+
+        tertiary: {
             [THEME_DARK]: '#dedfe0',
             [THEME_LIGHT]: '#484950',
         },
@@ -37,6 +42,10 @@ export default {
         primary: {
             [THEME_DARK]: '#0232BD',
             [THEME_LIGHT]: [225, 98, 37],
+        },
+        seperator: {
+            [THEME_DARK]: 'rgba(48, 48, 48, 0.1)',
+            [THEME_LIGHT]: 'rgba(48, 48, 48, 0.1)',
         },
     },
 }
