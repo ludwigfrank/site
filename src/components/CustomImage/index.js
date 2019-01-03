@@ -4,10 +4,11 @@ import { MyContext } from '../DataProvider'
 import { Wrapper } from './styles'
 import { getElementDimensions } from './utils'
 import ZoomImage from './Zoom'
+import { Description } from '$components/Text'
 
 const CustomImage = props => {
-    return (
-        <Wrapper {...props}>
+    return [
+        <Wrapper {...props} key={'image-' + props.imgSrc}>
             <MyContext.Consumer>
                 {context => {
                     const dimensions = getElementDimensions(props, context)
@@ -29,14 +30,22 @@ const CustomImage = props => {
                     )
                 }}
             </MyContext.Consumer>
-        </Wrapper>
-    )
+        </Wrapper>,
+        props.description && (
+            <figcaption key={'caption-' + props.imgSrc}>
+                <Description align={'center'} strip mt={2}>
+                    {props.description}
+                </Description>
+            </figcaption>
+        ),
+    ]
 }
 
 CustomImage.propTypes = {
     imgSrc: PropTypes.string,
     width: PropTypes.number,
     height: PropTypes.number,
+    description: PropTypes.string,
 }
 
 CustomImage.defaultProps = {

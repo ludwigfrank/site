@@ -8,15 +8,19 @@ export const getElementDimensions = ({ imgSrc, width, height }, context) => {
     const ratio = context[imgSrc].childImageSharp.fluid.aspectRatio
 
     let finalWidth = width
-        ? width
+        ? `${width}px`
         : height
         ? `${Math.round(ratio * height)}px`
         : '100%'
+
     let finalHight = height
-        ? height
+        ? `${height}px`
         : width
-        ? `${Math.round(ratio / width)}px`
+        ? `${Math.round(width / ratio)}px`
         : '100%'
+
+    if (typeof width === 'string') finalWidth = width
+    if (typeof height === 'string') finalHight = height
 
     return {
         width: finalWidth,

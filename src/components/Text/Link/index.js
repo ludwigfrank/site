@@ -1,14 +1,40 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import defaultStyles from '../defaultStyles'
+import GatsbyLinkComponent from 'gatsby-link'
+
+const linkStyles = css`
+    border-bottom: 1px solid rgba(48, 48, 48, 0.2);
+    transition: ${props => props.theme.animation.create()};
+    cursor: pointer;
+    text-decoration: none;
+    font-size: inherit;
+    color: inherit;
+    :hover {
+        border-bottom: 1px solid ${props => props.theme.color.text.accent};
+    }
+`
 
 const Styles = styled('a')`
     ${defaultStyles};
-    color: ${props => props.theme.color.interface.primary};
+    ${linkStyles};
 `
 
-const Link = ({ children, ...props }) => {
-    return <Styles {...props}> {children} </Styles>
+const GatsbyLink = styled(GatsbyLinkComponent)`
+    ${defaultStyles};
+    ${linkStyles};
+`
+
+const Link = ({ children, to, href, ...props }) => {
+    if (to) {
+        return <GatsbyLink to={to}>{children}</GatsbyLink>
+    }
+
+    return (
+        <Styles {...props} href={href} target="_blank">
+            {children}
+        </Styles>
+    )
 }
 
 export default Link

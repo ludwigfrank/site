@@ -19,7 +19,11 @@ const generateSlug = path => {
     return arr.slice(arr.indexOf('articles')).join('/')
 }
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onPreBuild = props => {
+    console.log(props)
+}
+
+exports.onCreateNode = ({ node, getNode, actions, ...props }) => {
     const { createNodeField } = actions
 
     if (node.internal.type === `Mdx`) {
@@ -106,6 +110,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
             name: 'keywords',
             node,
             value: node.frontmatter.keywords || [],
+        })
+
+        createNodeField({
+            name: 'priority',
+            node,
+            banner: node.frontmatter.priority,
         })
     }
 }

@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import defaultStyles from '../defaultStyles'
+import headerDefaultStyles from '../Heading/headerDefaultStyle'
 
 const Styles = styled('span')`
     ${defaultStyles};
+    ${headerDefaultStyles}
+    color: ${props => props.theme.color.text.primary};
     font-size: 35px;
     line-height: 40px;
-    font-family: 'FoundersGrotesk-Regular';
+    font-weight: 400;
 `
 
 const Callout = props => {

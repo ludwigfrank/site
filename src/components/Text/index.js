@@ -9,6 +9,7 @@ import Footnote from './Footnote'
 import Description from './Description'
 import Callout from './Callout'
 import Link from './Link'
+import Blockquote from './Blockquote'
 
 export {
     Paragraph,
@@ -22,4 +23,5 @@ export {
     Description,
     Callout,
     Link,
+    Blockquote,
 }

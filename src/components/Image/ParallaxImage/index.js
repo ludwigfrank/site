@@ -14,19 +14,10 @@ const ImageWrapper = styled('div')`
     transform: scale(1.2);
 `
 
-const windowHeight = window.innerHeight
-const nodeHeight = node => node.clientHeight
 const getPercentage = (startPos, endPos, currentPos) => {
     const distance = endPos - startPos
     const displacement = currentPos - startPos
     return displacement / distance
-}
-
-const getRelativePosition = node => {
-    const { top, height } = node.getBoundingClientRect()
-    const y = Math.round(top > height ? height : top)
-
-    return getPercentage(-height, height, y)
 }
 
 class ParallaxImage extends Component {
@@ -61,7 +52,7 @@ class ParallaxImage extends Component {
     }
 
     render() {
-        const { fluid, hovered } = this.props
+        const { fluid } = this.props
         const { isIntersecting } = this.state
         return (
             <Observer onChange={this.handleObserverChange}>

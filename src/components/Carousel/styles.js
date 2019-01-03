@@ -11,3 +11,11 @@ export const Container = styled('div')`
     white-space: nowrap;
     ${space}
 `
+
+export const ArmWrapper = styled('div')`
+    position: absolute;
+    z-index: 10;
+    bottom: -40px;
+    opacity: ${props => (props.didDrag ? 0 : 1)};
+    transition: ${props => props.theme.animation.create()};
+`

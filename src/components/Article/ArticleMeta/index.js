@@ -11,24 +11,50 @@ import {
 } from '$components/Text'
 import ContentWrapper from '$components/Layout/ContentWrapper'
 import { Box } from '@rebass/grid'
+import { BottomSeperator } from './styles'
 
 const HEADER_SPACING = 2
 const renderTeam = team => {
     return (
-        <Box mt={4}>
-            <Caption mb={HEADER_SPACING}>Team</Caption>
-            {team.map(
-                ({ name = 'Peter Maffei', responsibility = 'UX Design' }) => {
-                    return (
-                        <Box key={name} mb={2}>
-                            <Footnote sans strip mb={-1}>
-                                {name}
-                            </Footnote>
-                            <Caption>{responsibility}</Caption>
-                        </Box>
-                    )
-                }
-            )}
+        <Box mt={5}>
+            <Caption mb={HEADER_SPACING} themeColor="tertiary">
+                Team
+            </Caption>
+            <Box
+                mx={-3}
+                style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    flexDirection: 'column',
+                }}
+            >
+                {team.map(
+                    (
+                        { name = 'Peter Maffei', responsibility = 'UX Design' },
+                        index
+                    ) => {
+                        return (
+                            <Box key={index + name} mb={1} mx={3}>
+                                <Footnote
+                                    sans
+                                    strip
+                                    style={{ display: 'inline-block' }}
+                                >
+                                    {name}
+                                </Footnote>
+                                <Footnote
+                                    strip
+                                    mx={2}
+                                    themeColor={'tertiary'}
+                                    style={{ display: 'inline-block' }}
+                                >
+                                    {responsibility}
+                                </Footnote>
+                            </Box>
+                        )
+                    }
+                )}
+            </Box>
         </Box>
     )
 }
@@ -36,7 +62,9 @@ const renderTeam = team => {
 const renderTime = time => {
     return (
         <Box>
-            <Caption mb={HEADER_SPACING}>Time</Caption>
+            <Caption mb={HEADER_SPACING} themeColor="tertiary">
+                Time
+            </Caption>
             <Footnote strip sans>
                 {Array.isArray(time) ? `${time[0]} — ${time[1]}` : time}
             </Footnote>
@@ -46,8 +74,10 @@ const renderTime = time => {
 
 const renderClient = client => {
     return (
-        <Box mt={4}>
-            <Caption mb={HEADER_SPACING}>Client</Caption>
+        <Box mt={5}>
+            <Caption mb={HEADER_SPACING} themeColor="tertiary">
+                Client
+            </Caption>
             <Footnote strip sans>
                 {client}
             </Footnote>
@@ -55,15 +85,15 @@ const renderClient = client => {
     )
 }
 
-const renderRole = role => {
-    return <div />
-}
-
 const renderIntroSection = (title, content) => {
     return (
-        <Box mt={5}>
-            <Caption mb={HEADER_SPACING}>{title}</Caption>
-            <Footnote mt={0}>{content}</Footnote>
+        <Box mt={[5, 5, 5]}>
+            <Caption mb={HEADER_SPACING} themeColor="tertiary">
+                {title}
+            </Caption>
+            <Footnote mb={1} mt={0}>
+                {content}
+            </Footnote>
         </Box>
     )
 }
@@ -72,31 +102,29 @@ const ArticleMeta = ({ meta }) => {
     const { team, time, description, client, title, role, intro } = meta
 
     return [
-        <ContentWrapper mt={214}>
+        <ContentWrapper mt={[7, 7, 7]} key="header">
             <H1>{title}</H1>
         </ContentWrapper>,
-        <ContentWrapper flex mt={6} mb={6} pb={4}>
-            <Box width={1 / 2}>
+        <ContentWrapper
+            key="content"
+            flex
+            flexDirection={['column', 'column', 'row']}
+            mt={7}
+            mb={[4, 4, 7]}
+            pb={4}
+        >
+            <Box width={[1, 1, 1 / 2]}>
                 {renderTime(time)}
                 {renderClient(client)}
                 {renderTeam(team)}
             </Box>
-            <Box width={1 / 2}>
-                <H3 mt={1}>
-                    Nauu enables physiologists to better personalize depression
-                    therapy and gives the patient feedback on the progress they
-                    make.
+            <Box width={[1, 1, 1 / 2]} style={{ position: 'relative' }}>
+                <H3 mt={[5, 5, 1]} pb={[3, 3, 0]} strip>
+                    {description}
                 </H3>
-                {renderIntroSection('Role', role)}
             </Box>
         </ContentWrapper>,
-        <div
-            style={{
-                width: '100%',
-                borderBottom: '1px solid rgba(0,0,0,0.15)',
-                marginBottom: '180px',
-            }}
-        />,
+        <BottomSeperator key="bottom-seperator" mb={[6, 6, 8]} />,
     ]
 }
 

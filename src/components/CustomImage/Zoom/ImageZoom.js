@@ -147,13 +147,13 @@ export default class ImageZoom extends Component {
         return [
             <div
                 {...attrs}
+                key="image"
                 onMouseEnter={this._handleMouseEnter}
                 onMouseLeave={this._handleMouseLeave}
             >
                 <Image
                     style={this._getImageStyle()}
                     fluid={this.props.image}
-                    key="image"
                     ref={this.image}
                     onLoad={this._handleLoad}
                     onError={this._handleLoadError}

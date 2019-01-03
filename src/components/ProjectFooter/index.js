@@ -15,15 +15,16 @@ const ProjectFooter = ({ projects, activeProjectSlug }) => {
 
     return (
         <Wrapper mb={5} mt={7}>
-            <ProjectItem
+            {/*<ProjectItem
                 cover={
                     projects[prevProjectIndex].node.frontmatter.coverImg
                         .childImageSharp
                 }
                 title={projects[prevProjectIndex].node.frontmatter.title}
                 direction={'Previous'}
-            />
+            />*/}
             <ProjectItem
+                slug={projects[nextProjectIndex].node.frontmatter.slug}
                 cover={
                     projects[nextProjectIndex].node.frontmatter.coverImg
                         .childImageSharp

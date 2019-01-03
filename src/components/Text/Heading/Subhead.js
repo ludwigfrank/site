@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Paragraph } from '../'
 import defaultStyles from '../defaultStyles'
 
 const Styles = styled('span')`

@@ -1,11 +1,16 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import defaultStyles from '../defaultStyles'
-import { space } from 'styled-system'
+import { media } from '$theme/spacing'
 
 const Styles = styled('p')`
-    ${defaultStyles};
     color: ${props => props.theme.color.text.secondary};
+    ${defaultStyles};
+    line-height: 30px;
+    ${media.phone`
+        font-size: 18px;
+        line-height: 26px;
+    `}
 `
 
 const Paragraph = ({ children, ...props }) => {

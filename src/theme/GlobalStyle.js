@@ -1,9 +1,13 @@
 import { createGlobalStyle } from 'styled-components'
+import FoundersGrotesk from '../assets/fonts/FoundersGrotesk'
+import Theinhardt from '../assets/fonts/Theinhardt'
 
 const GlobalStyle = createGlobalStyle`
 
  * {
-   -webkit-backface-visibility: hidden
+   -webkit-backface-visibility: hidden;
+   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
  }
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -325,6 +329,22 @@ template {
 [hidden] {
   display: none;
 }
+
+
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+
+${FoundersGrotesk};
+${Theinhardt};
 `
 
 export default GlobalStyle

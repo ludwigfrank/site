@@ -1,7 +1,7 @@
 import React from 'react'
 
 import ContentWrapper from '$components/Layout/ContentWrapper'
-import { Paragraph, Description } from '$components/Text'
+import { Description } from '$components/Text'
 import { Emojis, BottomTextWrapper } from './styles'
 
 const Footer = () => {

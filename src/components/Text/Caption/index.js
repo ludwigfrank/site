@@ -4,10 +4,9 @@ import defaultStyles from '../defaultStyles'
 
 const Styles = styled('p')`
     margin: 0;
+    color: ${props => props.theme.color.text.tertiary};
     ${defaultStyles};
-    color: ${props => props.theme.color.text.secondary};
-    font-size: 17px;
-    opacity: 0.75;
+    font-size: 18px;
 `
 
 const Caption = ({ children, ...props }) => {

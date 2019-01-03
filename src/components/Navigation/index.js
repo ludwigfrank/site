@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import React, { PureComponent } from 'react'
 import defaultStyles from '../Text/defaultStyles'
+import { space } from 'styled-system'
 
 import Logo from './logo'
 import { Link } from 'gatsby'
@@ -10,18 +11,17 @@ import HeadRoom from './util/HeadRoom'
 const Wrapper = styled('div')`
     width: 100%;
     height: ${props => props.height};
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0);
     z-index: 400;
     transform: translateZ(0);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 `
 
 const InnerWrapper = styled('div')`
     max-width: ${props => props.theme.spacing.contentMaxWidth};
     margin: 0 auto;
     height: 100%;
-    padding: 0 ${props => props.theme.spacing.contentPadding};
     line-height: 64px;
+    ${space};
 `
 
 const Left = styled('div')`
@@ -41,6 +41,13 @@ const StyledLink = styled(Link)`
     opacity: 0.65;
 `
 
+const LogoFont = styled('span')`
+    font-family: 'Recoleta-Regular';
+    font-size: 18px;
+    font-weight: 600;
+    color: ${props => props.theme.color.text.primary};
+`
+
 const links = [
     /*   {
         name: 'Projects',
@@ -51,12 +58,8 @@ const links = [
         href: '/about',
     },
     {
-        name: 'Writing',
-        href: '/writing',
-    },
-    {
-        name: 'Mood',
-        href: '/projects/mood',
+        name: 'Contact',
+        href: '/contact',
     },
 ]
 
@@ -75,7 +78,13 @@ class Navigation extends PureComponent {
 
     renderLinks = links => {
         return links.map(link => (
-            <StyledLink to={link.href} key={link.name}>
+            <StyledLink
+                to={link.href}
+                key={link.name}
+                activeStyle={{
+                    opacity: 1,
+                }}
+            >
                 {link.name}
             </StyledLink>
         ))
@@ -88,10 +97,15 @@ class Navigation extends PureComponent {
                 disable={this.props.disableHeadroom}
             >
                 <Wrapper height={this.props.height}>
-                    <InnerWrapper>
+                    <InnerWrapper px={[4, 5, 5]}>
                         <Left>
-                            <Link to={'/'} key={'/'}>
-                                <Logo mt={'5px'} />
+                            <Link
+                                to={'/'}
+                                key={'/'}
+                                style={{ textDecoration: 'none' }}
+                            >
+                                {/*<Logo mt={'5px'} /> */}
+                                <LogoFont>Ludwig Frank</LogoFont>
                             </Link>
                         </Left>
                         <Right>{this.renderLinks(links)}</Right>

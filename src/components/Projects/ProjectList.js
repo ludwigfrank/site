@@ -2,28 +2,38 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ProjectItem from '$components/Projects/ProjectItem'
-import ContentWrapper from '$components/Layout/ContentWrapper'
-import { H4 } from '$components/Text'
-import { media } from '$theme/spacing'
+import Mauerwerk from '$components/Mauerwerk'
+import { sizes } from '$theme/spacing'
 
-const Wrapper = styled('ul')`
+const Wrapper = styled('div')`
     list-style: none;
     padding: 0;
-    column-count: 2;
-    column-gap: 2em;
     width: 100%;
-    ${media.tablet`
-        column-count: 1;`}
 `
+
+const breakpointColumnsObj = {
+    default: 2,
+    [sizes.tablet]: 1,
+}
 
 const ProjectList = ({ projects }) => (
     <Wrapper>
-        <li>
+        {/* <li>
             <H4 mb={5} />
-        </li>
-        {projects.map(project => (
-            <ProjectItem {...project.node.frontmatter} key={project.node.id} />
-        ))}
+        </li> */}
+        <Mauerwerk
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+        >
+            {projects.map((project, index) => (
+                <ProjectItem
+                    index={index}
+                    {...project.node.frontmatter}
+                    key={project.node.id}
+                />
+            ))}
+        </Mauerwerk>
     </Wrapper>
 )
 

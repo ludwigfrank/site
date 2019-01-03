@@ -22,6 +22,13 @@ module.exports = {
             },
         },
         {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: 'images',
+                path: `${__dirname}/src/images`,
+            },
+        },
+        {
             resolve: `gatsby-plugin-styled-components`,
             options: {
                 displayName: true,
@@ -51,5 +58,6 @@ module.exports = {
                 },
             },
         },
+        { resolve: 'gatsby-remark-image-gallery' },
     ],
 }

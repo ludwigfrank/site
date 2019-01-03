@@ -1,7 +1,7 @@
 import React from 'react'
 import DataProvider from '$components/DataProvider'
 import { MDXProvider } from '@mdx-js/tag'
-import { Paragraph, H2 } from '$components/Text'
+import { Paragraph, H2, H3, H4, Blockquote, Link } from '$components/Text'
 import { ArticleMeta } from '$components/Article'
 import ArticleWrapper from '$components/Layout/ArticleWrapper'
 import GlobalStyle from '../theme/GlobalStyle'
@@ -16,7 +16,9 @@ export default ({ children, data, ...props }) => {
         <StaticQuery
             query={graphql`
                 query Projects {
-                    allMdx {
+                    allMdx(
+                        sort: { fields: [frontmatter___priority], order: ASC }
+                    ) {
                         edges {
                             node {
                                 id
@@ -45,11 +47,41 @@ export default ({ children, data, ...props }) => {
                                 <H2> {props.children} </H2>
                             </ArticleWrapper>
                         ),
+                        h2: props => (
+                            <ArticleWrapper>
+                                <H3> {props.children} </H3>
+                            </ArticleWrapper>
+                        ),
+                        h3: props => (
+                            <ArticleWrapper>
+                                <H4> {props.children} </H4>
+                            </ArticleWrapper>
+                        ),
                         p: props => (
                             <ArticleWrapper>
                                 <Paragraph> {props.children} </Paragraph>
                             </ArticleWrapper>
                         ),
+                        blockquote: props => (
+                            <ArticleWrapper>
+                                <Blockquote>{props.children}</Blockquote>
+                            </ArticleWrapper>
+                        ),
+                        img: props => {
+                            console.log(props)
+                            return <div> Image </div>
+                        },
+                        a: ({ href, children }) => {
+                            const isInternal = !href.includes('.')
+                            return (
+                                <Link
+                                    href={!isInternal && href}
+                                    to={isInternal && href}
+                                >
+                                    {children}
+                                </Link>
+                            )
+                        },
                     }}
                 >
                     <Layout>

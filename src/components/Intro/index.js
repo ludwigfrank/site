@@ -1,15 +1,22 @@
 import React from 'react'
 import ArticleWrapper from '$components/Layout/ArticleWrapper'
-import { Callout } from '$components/Text'
+import { Callout, Paragraph, Link } from '$components/Text'
 
 const Intro = () => {
     return (
-        <ArticleWrapper mt={7} mb={200}>
+        <ArticleWrapper mt={[7, 7, 8]} mb={200}>
             <Callout>
-                Ludwig Frank is a User Experience Designer and Developer who
+                I'm Ludwig Frank, a User Experience Designer and Developer who
                 loves to stay curious, to observe and to solve problems humans
                 around the world face each day.
             </Callout>
+            <Paragraph>
+                You can find me on{' '}
+                <Link href="https://www.instagram.com/luddi.jpg/">
+                    Instagram
+                </Link>{' '}
+                or read <Link to="/about">my story</Link>.
+            </Paragraph>
         </ArticleWrapper>
     )
 }

@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { Container } from './styles'
-import { TweenLite, Draggable } from 'gsap/all'
+import { Container, ArmWrapper } from './styles'
+import { Draggable, TweenMax } from 'gsap/all'
+
 import ContentWrapper from '$components/Layout/ContentWrapper'
+import ArmAnimation from '$components/Animations/Carousel/Arm'
 
 let ThrowProps
 export default class Carousel extends Component {
@@ -10,6 +12,7 @@ export default class Carousel extends Component {
         padding: 24,
         intervalId: null,
         carouselElements: [],
+        didDrag: false,
     }
 
     componentDidMount() {
@@ -20,11 +23,16 @@ export default class Carousel extends Component {
             }
         })
 
+        const self = this
+
         this.draggableInstance = Draggable.create(this.container, {
             type: 'x',
             throwProps: true,
             edgeResistance: 0.95,
             zIndexBoost: false,
+            onDragStart: () => {
+                self.setState({ didDrag: true })
+            },
         })
 
         if (this.props.shouldRotate) {
@@ -35,6 +43,12 @@ export default class Carousel extends Component {
 
             this.setState({ intervalId })
         }
+
+        TweenMax.to(this.container, 1, {
+            x: 20,
+            yoyo: true,
+            repeat: -1,
+        })
     }
 
     componentWillUnmount() {
@@ -48,7 +62,7 @@ export default class Carousel extends Component {
             let outerWidth = 0
 
             carouselElements.forEach(element => {
-                TweenLite.set(element, {
+                TweenMax.set(element, {
                     display: 'inline-block',
                     marginRight: `${this.state.padding}px`,
                 })
@@ -79,7 +93,13 @@ export default class Carousel extends Component {
 
     renderContent = () => {
         return (
-            <div ref={element => (this.heightWrapper = element)}>
+            <div
+                ref={element => (this.heightWrapper = element)}
+                style={{ position: 'relative' }}
+            >
+                <ArmWrapper didDrag={this.state.didDrag}>
+                    <ArmAnimation animationElement={this.container} />
+                </ArmWrapper>
                 <div
                     key="position-ref"
                     ref={element => (this.positionRef = element)}
@@ -92,9 +112,8 @@ export default class Carousel extends Component {
                     {React.Children.map(this.props.children, (element, id) => {
                         return (
                             <div
+                                key={id}
                                 style={{
-                                    width: 'auto',
-                                    height: 'auto',
                                     display: 'inline-block',
                                 }}
                                 ref={element => {

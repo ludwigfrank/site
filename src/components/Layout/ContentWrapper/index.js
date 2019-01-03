@@ -1,31 +1,28 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import {
     space,
     flex,
-    alignSelf,
     alignItems,
     flexWrap,
     flexDirection,
     justifyContent,
 } from 'styled-system'
+import { Flex } from '@rebass/grid'
 
 const Styles = styled('div')`
     margin: 0 auto;
     max-width: ${props => props.theme.spacing.contentMaxWidth};
-    padding: 0 ${props => props.theme.spacing.contentPadding};
     display: ${props => (props.flex ? 'flex' : 'inherit')};
-    ${(flex,
-    space,
-    flexDirection,
-    justifyContent,
-    flexWrap,
-    alignItems)}
+    ${(flex, space, flexDirection, justifyContent, flexWrap, alignItems)}
     ${space};
+    ${flexDirection};
 `
 
-const ContentWrapper = ({ children, ...props }) => (
-    <Styles {...props}> {children} </Styles>
+const ContentWrapper = ({ children, theme, stripMobile, ...props }) => (
+    <Styles {...props} px={[stripMobile ? 0 : 4, theme.spacing.contentPadding]}>
+        {children}
+    </Styles>
 )
 
-export default ContentWrapper
+export default withTheme(ContentWrapper)

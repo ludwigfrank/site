@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /*!
  * VERSION: 0.11.1
  * DATE: 2017-06-19
@@ -11,14 +13,12 @@
  * @author: Jack Doyle, jack@greensock.com
  */
 var _gsScope =
-        typeof module !== 'undefined' &&
-        module.exports &&
-        typeof global !== 'undefined'
-            ? global
-            : this || window //helps ensure compatibility with AMD/RequireJS and CommonJS/Node
+    typeof module !== 'undefined' &&
+    module.exports &&
+    typeof global !== 'undefined'
+        ? global
+        : this || window //helps ensure compatibility with AMD/RequireJS and CommonJS/Node
 ;(_gsScope._gsQueue || (_gsScope._gsQueue = [])).push(function() {
-    'use strict'
-
     _gsScope._gsDefine(
         'plugins.ThrowPropsPlugin',
         [

@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import withTheme from '../theme'
 import Navigation from '../components/Navigation'
 import Footer from '$components/Footer'
+import GlobalStyle from '../theme/GlobalStyle'
 
 export default withTheme(({ children }) => {
     return (
@@ -18,7 +19,8 @@ export default withTheme(({ children }) => {
                 <html lang="en" />
             </Helmet>
             <Navigation />
-            {children}
+            <GlobalStyle />
+            <div style={{ paddingTop: '64px' }}>{children}</div>
             <Footer />
         </Fragment>
     )

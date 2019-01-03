@@ -10,17 +10,17 @@ export default {
 
         secondary: {
             [THEME_DARK]: 'rgba(0,0,0,.84)',
-            [THEME_LIGHT]: 'rgba(0,0,0,.84)',
+            [THEME_LIGHT]: 'rgb(72, 73, 80)',
         },
 
         tertiary: {
             [THEME_DARK]: '#dedfe0',
-            [THEME_LIGHT]: '#484950',
+            [THEME_LIGHT]: '#7b8188',
         },
 
         hint: {
-            [THEME_DARK]: '#a9b0b4',
-            [THEME_LIGHT]: '#697279',
+            [THEME_DARK]: '#71777d',
+            [THEME_LIGHT]: '#95989a',
         },
 
         white: {
@@ -41,7 +41,7 @@ export default {
         },
         primary: {
             [THEME_DARK]: '#0232BD',
-            [THEME_LIGHT]: [225, 98, 37],
+            [THEME_LIGHT]: 'rgb(2, 50, 189)',
         },
         seperator: {
             [THEME_DARK]: 'rgba(48, 48, 48, 0.1)',

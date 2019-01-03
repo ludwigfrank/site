@@ -2,29 +2,30 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { space } from 'styled-system'
-import { H3, Description } from '$components/Text'
-import Img from 'gatsby-image'
+import { Box } from '@rebass/grid'
+import { H2, Footnote } from '$components/Text'
 import ParallaxImage from '../Image/ParallaxImage'
 import { Link } from 'gatsby'
 import { media } from '$theme/spacing'
 
-const Wrapper = styled('li')`
+const colors = ['#FFDD87', '#FD9796', '#A98CED', '#FD9796']
+
+const Wrapper = styled('div').attrs(props => ({
+    style: {
+        backgroundColor: colors[props.index],
+    },
+}))`
     display: inline-block;
     list-style: none;
     width: 100%;
-    &:hover #img {
-        transform: scale(0.95);
-    }
-    &:hover #imgInner {
-        transform: scale(1.05);
-    }
-
+    overflow: hidden;
     ${space}
 `
 
 const ImgWrapper = styled('div')`
     width: 100%;
     overflow: hidden;
+    margin-top: -40px;
     ${media.tablet`
             margin-left: -${props => props.theme.spacing.contentPadding};
             width: ${props =>
@@ -40,20 +41,30 @@ const ImgWrapperInner = styled('div')`
     transition: ${props => props.theme.animation.create()};
 `
 
-const TextWrapper = styled('div')`
-    max-width: 420px;
-    margin: 0 auto;
-    > * {
-        text-align: center;
-    }
-`
-
 class ProjectItem extends React.Component {
     render() {
-        const { title, description, date, coverImg, slug } = this.props
+        const { title, description, coverImg, slug, index } = this.props
         return (
             <Link to={`articles/${slug}`}>
-                <Wrapper mb={5}>
+                <Wrapper
+                    mb={[0, 4]}
+                    index={index}
+                    mt={index === 0 ? [2, 6] : 0}
+                >
+                    <Box p={[4, 5, 6]}>
+                        <H2 mb={3} mt={2} strip style={{ fontWeight: 600 }}>
+                            {title}
+                        </H2>
+                        <Footnote
+                            mt={4}
+                            style={{
+                                lineHeight: '24px',
+                                color: 'rgba(0,0,0,0.76)',
+                            }}
+                        >
+                            {description}
+                        </Footnote>
+                    </Box>
                     <ImgWrapper id="img">
                         <ImgWrapperInner id="imgInner">
                             <ParallaxImage
@@ -61,12 +72,6 @@ class ProjectItem extends React.Component {
                             />
                         </ImgWrapperInner>
                     </ImgWrapper>
-                    <TextWrapper>
-                        <H3 mb={3} mt={4}>
-                            {title}
-                        </H3>
-                        <Description mt={0}> {description} </Description>
-                    </TextWrapper>
                 </Wrapper>
             </Link>
         )

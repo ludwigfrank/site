@@ -1,5 +1,3 @@
-import { themeActive } from ".";
-
 export const duration = {
     shortest: 150,
     shorter: 200,

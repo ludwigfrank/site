@@ -1,9 +1,9 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { withTheme } from 'styled-components'
+
 import {
     space,
     flex,
-    alignSelf,
     alignItems,
     flexWrap,
     flexDirection,
@@ -13,19 +13,15 @@ import {
 const Styles = styled('div')`
     margin: 0 auto;
     max-width: ${props => props.theme.spacing.articleMaxWidth};
-    padding: 0 ${props => props.theme.spacing.contentPadding};
     display: ${props => (props.flex ? 'flex' : 'inherit')};
-    ${(flex,
-    space,
-    flexDirection,
-    justifyContent,
-    flexWrap,
-    alignItems)}
+    ${(flex, space, flexDirection, justifyContent, flexWrap, alignItems)}
     ${space};
 `
 
 const ArticleWrapper = ({ children, ...props }) => (
-    <Styles {...props}> {children} </Styles>
+    <Styles {...props} px={[4, 5]}>
+        {children}
+    </Styles>
 )
 
-export default ArticleWrapper
+export default withTheme(ArticleWrapper)

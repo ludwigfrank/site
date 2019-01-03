@@ -1,15 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import defaultStyles from '../defaultStyles'
-import { space } from 'styled-system'
+import { media } from '$theme/spacing'
 
 const Styles = styled('p')`
+    color: ${props => props.theme.color.text.secondary};
     ${defaultStyles};
-    color: ${props =>
-        props.primary
-            ? props.theme.color.text.primary
-            : props.theme.color.text.secondary};
-    font-size: 17px;
+    font-size: 19px;
+    line-height: 26px;
+    ${media.phone`
+        font-size: 17px;
+        line-height: 23px;
+    `}
 `
 
 const Footnote = props => {

@@ -3,7 +3,7 @@ import color from './color'
 import React from 'react'
 import typography from './typography'
 import animation from './animation'
-import spacing from './spacing'
+import spacing, { space, breakpoints } from './spacing'
 import shadow from './shadow'
 import { THEME_ACTIVE, THEME_DARK } from './constants'
 import { ThemeProvider } from 'styled-components'
@@ -45,9 +45,9 @@ const getTheme = (themeId = THEME_ACTIVE) => {
         typography,
         shadow,
         spacing,
+        space,
         animation,
-        space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-        breakpoints: ['480px', '840px', spacing.contentMaxWidth],
+        breakpoints,
     }
 }
 

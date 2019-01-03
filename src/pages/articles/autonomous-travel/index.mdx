@@ -1,17 +1,14 @@
 ---
 title: 'Autonomous Travel'
 slug: 'autonomous-travel'
-team:
-    [
-        { name: 'Theodor Hillman', responsibility: 'Programming' },
-        { name: 'Robin Müller', responsibility: 'UX Design' },
-    ]
-time: ['March 2016', 'May 2018']
-description: 'Create a travel experience tailored for autonomous vehicles.'
+team: [{ name: 'Paul Anker', responsibility: 'Industrial Design' }]
+time: ['March 2016', 'March 2016']
+description: 'Create a travel experience for the age of autonomous vehicles.'
 intro: 'Nauu enables physiologists to better personalize depression therapy and gives the patient feedback on the progress they make.'
 role: 'Founded in 2005, Mindvalley was just a digital publisher but over the past 10 years the company expanded its business dramatically. Mindvalley has opened a few international branches, went offline organizing global events and meetups, started developing iOS/Android apps and learning platforms in-house.'
 client: 'University Project led by Jan '
 coverImg: './images/cover.png'
+priority: 3
 ---
 
 import CustomImage from '$components/CustomImage'
@@ -30,16 +27,18 @@ export const pageQuery = graphql`
 
 GraphQL a query language that can be used anywhere, but it often bridges the gap between client and server applications. It isn't opionated about which network layer is used, so data can be read and written between client and server applications. It is used to complement the network stack for many libraries and frameworks in JavaScript. The client side takes advancategorye of popular solutions like React, Angular, and Vue, while the server side can use middleware libraries like Express, Koa, and Hapi in a Node.js environment. It is just a matter of sending GraphQL operations with plain HTTP across the wire.
 
+# Outcome
+
 <Carousel wrapper>
-    <CustomImage imgSrc="attendants" />
-    <CustomImage imgSrc="attendants2" />
-    <CustomImage imgSrc="attendants3" />
-    <CustomImage imgSrc="money" />
-    <CustomImage imgSrc="route" />
-    <CustomImage imgSrc="route2" />
-    <CustomImage imgSrc="route3" />
-    <CustomImage imgSrc="route4" />
-    <CustomImage imgSrc="route5" />
+    <CustomImage imgSrc="attendants" description="Onboarding" />
+    <CustomImage imgSrc="attendants2" description="Preferences" />
+    <CustomImage imgSrc="attendants3" description="Preference deletion" />
+    <CustomImage imgSrc="money" description="Budget" />
+    <CustomImage imgSrc="route" description="Mood" />
+    <CustomImage imgSrc="route2" description="Destination" />
+    <CustomImage imgSrc="route3" description="Generated route" />
+    <CustomImage imgSrc="route4" description="Alternative stops" />
+    <CustomImage imgSrc="route5" description="Route intervention" />
 </Carousel>
 
 ## Challenges

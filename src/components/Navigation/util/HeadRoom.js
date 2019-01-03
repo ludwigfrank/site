@@ -1,7 +1,7 @@
 import React, { Component } from 'react' // eslint-disable-line import/no-unresolved
 import PropTypes from 'prop-types'
 import shouldUpdate from './shouldUpdate'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 const noop = () => {}
 
@@ -67,7 +67,7 @@ export default class Headroom extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps.disable && !this.props.disable) {
             this.unfix()
             this.props.parent().removeEventListener('scroll', this.handleScroll)
