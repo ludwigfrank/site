@@ -33,7 +33,7 @@ export const Emojis = styled('div')`
     }
 `
 
-export const BottomTextWrapper = styled('div')`
+export const BottomTextWrapper = styled('footer')`
     display: flex;
     justify-content: space-between;
     flex-direction: row;

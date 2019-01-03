@@ -10,15 +10,16 @@ import { media } from '$theme/spacing'
 
 const colors = ['#FFDD87', '#FD9796', '#A98CED', '#FD9796']
 
-const Wrapper = styled('div').attrs(props => ({
-    style: {
-        backgroundColor: colors[props.index],
-    },
-}))`
+const Wrapper = styled('div').attrs(props => ({}))`
+    background: #f7f9fa;
     display: inline-block;
     list-style: none;
     width: 100%;
     overflow: hidden;
+    transition: ${props => props.theme.animation.create()};
+    &:hover {
+        background: ${props => colors[props.index]};
+    }
     ${space}
 `
 
