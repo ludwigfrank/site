@@ -6,7 +6,7 @@ const defaultStyles = css`
         'MaisonNeue-Book', sans-serif;
     font-size: 21px;
     line-height: 30px;
-    font-weight: 400;
+    font-weight: normal;
     color: ${props => props.theme.color.text.secondary};
     ${props =>
         props.themeColor &&

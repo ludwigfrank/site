@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-import FoundersGrotesk from '../assets/fonts/FoundersGrotesk'
 import Theinhardt from '../assets/fonts/Theinhardt'
+import Recoleta from '../assets/fonts/Recoleta'
 
 const GlobalStyle = createGlobalStyle`
 
@@ -343,8 +343,8 @@ template {
   background-clip: padding-box;
 }
 
-${FoundersGrotesk};
 ${Theinhardt};
+${Recoleta};
 `
 
 export default GlobalStyle
