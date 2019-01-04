@@ -144,5 +144,5 @@ export default class Carousel extends Component {
 Carousel.defaultProps = {
     shouldRotate: true,
     rotateInterval: 4000,
-    maxHeight: window.innerHeight > 600 ? 540 : window.innerHeight * 0.8,
+    maxHeight: 600,
 }
