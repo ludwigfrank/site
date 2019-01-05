@@ -24,9 +24,11 @@ class Contact extends React.Component {
     handleSubmit = e => {
         const { name, email, message } = this.state
         if (name === '' || email === '' || message === '') {
-            this.setState({ errorMessage: 'Plase complete the full form.' })
+            this.setState({ errorMessage: 'Plase complete the form.' })
             e.preventDefault()
             return
+        } else {
+            this.setState({ errorMessage: '' })
         }
 
         fetch('/', {
@@ -53,6 +55,12 @@ class Contact extends React.Component {
                         You can also send me an email to{' '}
                         <Link>mail@ludwigfrank.com</Link>.
                     </Paragraph>
+                    {this.state.errorMessage !== '' && (
+                        <Paragraph themeColor="accent">
+                            {' '}
+                            {this.state.errorMessage}{' '}
+                        </Paragraph>
+                    )}
 
                     <form action="" onSubmit={this.handleSubmit}>
                         <Input

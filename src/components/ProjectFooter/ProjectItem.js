@@ -31,7 +31,7 @@ const ProjectItem = ({ cover, title, direction, slug }) => {
                     {title}
                 </H3>
             </TextContent>
-            <ProjectBackground fluid={cover.fluid} />
+            {cover && <ProjectBackground fluid={cover.fluid} />}
         </Item>
     )
 }

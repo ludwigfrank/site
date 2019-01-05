@@ -8,10 +8,13 @@ import ParallaxImage from '../Image/ParallaxImage'
 import { Link } from 'gatsby'
 import { media } from '$theme/spacing'
 
-const colors = ['#FFDD87', '#FD9796', '#A98CED', '#FD9796']
+// const colors = ['#FFDD87', '#FD9796', '#A98CED', '#FD9796']
+const colors = ['#0CC0B8', '#FAB506', '#FAB506', '#203F99', '#0CC0B8']
 
-const Wrapper = styled('div').attrs(props => ({}))`
-    background: #f7f9fa;
+const Wrapper = styled('div').attrs(props => ({
+    style: {},
+}))`
+    background: #ecf1f2;
     display: inline-block;
     list-style: none;
     width: 100%;
@@ -58,6 +61,7 @@ class ProjectItem extends React.Component {
                         </H2>
                         <Footnote
                             mt={4}
+                            mb={0}
                             style={{
                                 lineHeight: '24px',
                                 color: 'rgba(0,0,0,0.76)',
@@ -66,13 +70,15 @@ class ProjectItem extends React.Component {
                             {description}
                         </Footnote>
                     </Box>
-                    <ImgWrapper id="img">
-                        <ImgWrapperInner id="imgInner">
-                            <ParallaxImage
-                                fluid={coverImg.childImageSharp.fluid}
-                            />
-                        </ImgWrapperInner>
-                    </ImgWrapper>
+                    {coverImg && (
+                        <ImgWrapper id="img">
+                            <ImgWrapperInner id="imgInner">
+                                <ParallaxImage
+                                    fluid={coverImg.childImageSharp.fluid}
+                                />
+                            </ImgWrapperInner>
+                        </ImgWrapper>
+                    )}
                 </Wrapper>
             </Link>
         )

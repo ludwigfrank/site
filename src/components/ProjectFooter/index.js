@@ -26,8 +26,11 @@ const ProjectFooter = ({ projects, activeProjectSlug }) => {
             <ProjectItem
                 slug={projects[nextProjectIndex].node.frontmatter.slug}
                 cover={
-                    projects[nextProjectIndex].node.frontmatter.coverImg
-                        .childImageSharp
+                    projects[nextProjectIndex].node.frontmatter.coverImg !==
+                    null
+                        ? projects[nextProjectIndex].node.frontmatter.coverImg
+                              .childImageSharp
+                        : null
                 }
                 title={projects[nextProjectIndex].node.frontmatter.title}
                 direction={'Next'}
