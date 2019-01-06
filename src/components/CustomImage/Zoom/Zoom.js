@@ -59,7 +59,7 @@ export default class Zoom extends Component {
         const style = this._getZoomImageStyle()
 
         return (
-            <div class={'zoom-image'} style={this._getZoomContainerStyle()}>
+            <div className={'zoom-image'} style={this._getZoomContainerStyle()}>
                 <Overlay isVisible={isZoomed} defaultStyles={defaultStyles} />
                 <Image {...zoomImage} fluid={this.props.image} style={style} />
                 <TmpImg {...zoomImage} src={tmpSrc} style={style} />

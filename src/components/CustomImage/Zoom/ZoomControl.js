@@ -1,11 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import IconSearch from '../../../images/icons/Search.js'
 import styled from 'styled-components'
 
-const Wrapper = styled('div').attrs(({ show }) => ({
+const Wrapper = styled('div').attrs(({ isShown }) => ({
     style: {
-        padding: show ? `8px 8px 24px 24px` : `8px 8px 16px 16px`,
-        opacity: show ? 1 : 0,
+        padding: isShown ? `8px 8px 24px 24px` : `8px 8px 16px 16px`,
+        opacity: isShown ? 1 : 0,
     },
 }))`
     transition: ${props => props.theme.animation.create()};
@@ -20,22 +21,27 @@ const Wrapper = styled('div').attrs(({ show }) => ({
     cursor: pointer;
 `
 
-const StyledIconSearch = styled(IconSearch).attrs(({ show }) => ({
+const StyledIconSearch = styled(IconSearch).attrs(({ isShown }) => ({
     style: {
-        opacity: show ? 1 : 0,
+        opacity: isShown ? 1 : 0,
     },
 }))`
     transition-delay: 4s;
     transition: opacity
-        ${props => (props.show === true ? `0.4s ease-out` : `0.15s ease-in`)};
+        ${props => (props.isShown === true ? `0.4s ease-out` : `0.15s ease-in`)};
 `
 
-const ZoomControl = ({ show, handleClick }) => {
+const ZoomControl = ({ isShown, handleClick }) => {
     return (
-        <Wrapper show={show} onClick={handleClick}>
-            <StyledIconSearch width={24} height={24} show={show} />
+        <Wrapper isShown={isShown} onClick={handleClick}>
+            <StyledIconSearch width={24} height={24} isShown={isShown} />
         </Wrapper>
     )
+}
+
+ZoomControl.propTypes = {
+    isShown: PropTypes.bool,
+    handleClick: PropTypes.func,
 }
 
 export default ZoomControl

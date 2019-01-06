@@ -17,7 +17,6 @@ const Grid = ({
         <OuterWrapper stripMobile mb={[2, 5, 5]}>
             <Wrapper>
                 {React.Children.map(children, (element, id) => {
-                    console.log(element)
                     return (
                         <InnerWrapper
                             flexGrow={
@@ -28,8 +27,8 @@ const Grid = ({
                         >
                             {React.cloneElement(element, {
                                 maxHeight: '700px',
-                                shadow: true,
-                                radius: true,
+                                shadow: false,
+                                borderRadius: false,
                             })}
                         </InnerWrapper>
                     )

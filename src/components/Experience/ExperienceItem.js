@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Footnote, Paragraph, H4, Description } from '$components/Text'
+import { Footnote, H4 } from '$components/Text'
 import styled from 'styled-components'
 import { space } from 'styled-system'
 import { media } from '$theme/spacing'
@@ -43,13 +43,15 @@ const ExperienceItem = ({ company, text, time, location, role }) => {
                 <Footnote strip themeColor={'tertiary'}>
                     {role}
                 </Footnote>
-                <Footnote strip>{text}</Footnote>
+                <Footnote strip mt={[2, 2, 2]}>
+                    {text}
+                </Footnote>
             </Right>
         </Wrapper>
     )
 }
 
-ExperienceItem.PropTypes = {
+ExperienceItem.propTypes = {
     company: PropTypes.string.isRequired,
     text: PropTypes.string,
     time: PropTypes.array,

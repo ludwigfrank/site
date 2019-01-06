@@ -14,7 +14,6 @@ module.exports = {
     },
     plugins: [
         'gatsby-plugin-react-helmet',
-        `gatsby-plugin-transition-link`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -50,6 +49,7 @@ module.exports = {
         'gatsby-plugin-offline',
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
+        'gatsby-plugin-catch-links'
         {
             resolve: `gatsby-mdx`,
             options: {

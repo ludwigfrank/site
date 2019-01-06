@@ -22,7 +22,7 @@ const emojiAnimation = keyframes`
     }
 `
 
-export const Emojis = styled('div')`
+export const Emojis = styled('span')`
     position: relative;
     display: inline-block;
     margin-left: 4px;

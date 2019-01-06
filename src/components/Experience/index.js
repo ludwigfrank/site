@@ -20,13 +20,13 @@ const Experience = ({ experience }) => {
     return (
         <Wrapper mb={6}>
             {experience.map(item => (
-                <ExperienceItem {...item} />
+                <ExperienceItem {...item} key={item.company} />
             ))}
         </Wrapper>
     )
 }
 
-Experience.PropTypes = {
+Experience.propTypes = {
     experience: PropTypes.array,
 }
 

@@ -160,7 +160,7 @@ export default class ImageZoom extends Component {
                 />
                 {this.props.isCarousel && (
                     <ZoomControl
-                        show={this.state.isFocus}
+                        isShown={this.state.isFocus}
                         handleClick={() => this.setState({ isZoomed: true })}
                     />
                 )}
