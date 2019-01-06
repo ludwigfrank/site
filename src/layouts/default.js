@@ -11,7 +11,7 @@ import '../assets/fonts/Theinhardt/styles.css'
 
 export default withTheme(({ children }) => {
     return (
-        <Fragment>
+        <div style={{ overflowX: 'hidden' }}>
             <Helmet
                 title={'Ludwig Frank Portfolio'}
                 meta={[
@@ -25,7 +25,7 @@ export default withTheme(({ children }) => {
             <GlobalStyle />
             <div style={{ paddingTop: '64px' }}>{children}</div>
             <Footer />
-        </Fragment>
+        </div>
     )
 })
 
