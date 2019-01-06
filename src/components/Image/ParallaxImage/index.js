@@ -3,7 +3,6 @@ import { TweenMax, Power4 } from 'gsap'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
-import 'intersection-observer'
 import Observer from '@researchgate/react-intersection-observer'
 
 const ImageOuterWrapper = styled('div')`
@@ -28,6 +27,7 @@ class ParallaxImage extends Component {
     }
 
     componentDidMount() {
+        require('intersection-observer')
         window.addEventListener('scroll', this.handleScroll)
     }
 
