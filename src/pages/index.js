@@ -1,14 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../layouts/default'
-import Projects from '../components/Projects'
 import Intro from '$components/Intro'
 
 export default function Index({ data: { site, allMdx } }) {
     return (
         <Layout site={site}>
             <Intro />
-            <Projects projects={allMdx.edges} />
         </Layout>
     )
 }
