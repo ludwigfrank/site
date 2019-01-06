@@ -58,7 +58,7 @@ One of the vexing issues besetting those active in international relations is th
     />
 </Carousel>
 
-This project has attempted to address this knowledge gap through methods typically used by scholars and policy analysts, such as reading deeply into the history of each country’s foreign policy and relationship with each other. Critical oral history adds to conventional methods by encouraging decision makers to ponder how and why they responded to events and their counterparts. This enables some reflection that typically is not forthcoming in one-on-one interviews. The conferences, briefing documents, and scholars altogether encourage an unusual depth in considering events.
+This project attempts to address this knowledge gap through methods typically used by scholars and policy analysts, such as reading deeply into the history of each country’s foreign policy and relationship with each other. Critical oral history adds to conventional methods by encouraging decision makers to ponder how and why they responded to events and their counterparts. This enables some reflection that typically is not forthcoming in one-on-one interviews. The conferences, briefing documents, and scholars altogether encourage an unusual depth in considering events.
 
 <Gallery>
     <CustomImage imgSrc="initial_sketches_1" />
@@ -66,10 +66,20 @@ This project has attempted to address this knowledge gap through methods typical
     <CustomImage imgSrc="initial_sketches_3" />
 </Gallery>
 
-## Challenges
+# Defining the user group
 
-The emergence of GraphQL introduces a new era in web development. RESTful applications were the industry favorite for data transfers between client and server applications, but modern requirements have shifted. Applications have to deal with multiple clients--i.e. desktop, web, mobile, wearables--which are all interested in APIs exposed by server applications. The choice becomes one between using multiple client-specific APIs with REST, or just one API with GraphQL for all client applications, which hardly seems like a choice at all. GraphQL is more than just a unified interface, though; its ecosystem offers powerful capbilities and even more potential as its open source community grows.
-For me, it was a lucky coincidence that a former coworker open-sourced the GraphQL implementation for Java. He worked to become one of GraphQL's first open source contributors, eventually creating one of the go-to implementations for Java. The experience shaped my own thinking about GraphQL, which was expanded when my employer evaluated GraphQL for their enterprise application. The glue between our client and server application was largely influenced by REST, but we had API endpoints for all our RESTful resources in place, eventually running into issues like Facebook for API-consuming client-dide applications. The API endpoints were too rigid, so they required aggregations and modifications. An aggregation means putting resources a singular API endpoint, where a modification is to offer variations of an API endpoint to request different representations of a resource. We introduced our own implementation to request resources from the server, and avoided modifying endpoints. But the aggregations were still in place, so we had our own naive implementation of GraphQL, though it was only able to query one resource and didn't understand relationships. From a client-side perspective, only Relay for React was as sophisticated a library in terms of consuming GraphQL APIs, so we invested time in this as well. In the end, GraphQL was too early in its development, so we postponed introducing it to our technology stack. Admittedly, none of us knew it would become so powerful or so popular.
+We first attempted the creation of a framework, fitting for scholars and the public alike — an application that would guide users through storytelling, introduce them to the topic, one that profoundly relies on the in-depth knowledge of the other sides history and politics. Instead of focusing on both user groups from the beginning, however, we decided to focus on the exploration-driven scholar representation initially. Researchers would then have the possibility to extend the archive by adding documents or creating relationships between existing entities. Mistakes in the data or errors derived from the automated process used to sort the vast amount of data could then also be eradicated.
+In our conducted interviews with scholars from the Massachusetts Institute of Technology, it became clear, that a deep understanding of the two countries relation was present. Our initial idea of a storytelling approach, to give a basic overview of critical historical events, was therefore postponed. Instead, we would focus solely on a novel way to explore the archive.
+
+# Design Sprint
+
+In the first design sprint, we mapped out any data that the final archive would include.
+
+## Circular View
+
+In the end, we opted for a circular view to represent documents and events that are related to the current selection of a person, document or event.
+Similar to the main timeline, circular shapes represent the actors. Using circle packing, they float around the center which illustrates the active entity.
+Through multiple user tests, we found triangles and circles to be the best distinguishable shapes at the small form factor.
 
 This book starts with GraphQL in client-side applications, so you will use React as a UI library to consume your first third-party GraphQL API, which happens to be GitHub's GraphQL API. It is a popular choice among developers for a couple reasons: GitHub was one of few popular companies to releas a GraphQL API to the public; GitHub's subsequent growth has granted some credibility to GraphQL itself; and a third-party API usually focuses on client-side GraphQL in the beginning. This book teaches how to consume the GraphQL API into a client application without exposing it to the server.
 

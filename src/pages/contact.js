@@ -67,19 +67,25 @@ class Contact extends React.Component {
                             label={'Name'}
                             type={'text'}
                             name={'name'}
+                            value={name}
                             placeholder={'Ludwig Frank'}
+                            onChange={this.handleChange}
                         />
                         <Input
                             label={'Email'}
                             type={'email'}
                             name={'email'}
+                            value={email}
                             placeholder={'mail@ludwigfrank.com'}
+                            onChange={this.handleChange}
                         />
                         <Input
                             label={'Message'}
                             name={'message'}
                             multiline
+                            value={message}
                             placeholder={'Your message here ...'}
+                            onChange={this.handleChange}
                         />
                         <Button type="submit"> Send Message </Button>
                     </form>
