@@ -44,7 +44,7 @@ const StyledLink = styled(Link)`
 const LogoFont = styled('span')`
     font-family: 'Recoleta';
     font-size: 18px;
-    font-weight: 600;
+    font-weight: bold;
     color: ${props => props.theme.color.text.primary};
 `
 

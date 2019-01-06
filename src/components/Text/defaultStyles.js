@@ -2,7 +2,7 @@ import { css } from 'styled-components'
 import { space } from 'styled-system'
 
 const defaultStyles = css`
-    font-family: 'GTAmerica','Theinhardt','SuisseIntl-Regular', 'GTAmerica-Regular', 'Adelle Sans',
+    font-family: 'Theinhardt','SuisseIntl-Regular', 'GTAmerica-Regular', 'Adelle Sans',
         'MaisonNeue-Book', sans-serif;
     font-size: 21px;
     line-height: 30px;
