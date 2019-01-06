@@ -1,6 +1,4 @@
 import { createGlobalStyle } from 'styled-components'
-import Theinhardt from '../assets/fonts/Theinhardt'
-import Recoleta from '../assets/fonts/Recoleta'
 
 const GlobalStyle = createGlobalStyle`
 
@@ -342,9 +340,6 @@ template {
   padding-left: 30px; /* gutter size */
   background-clip: padding-box;
 }
-
-${Theinhardt};
-${Recoleta};
 `
 
 export default GlobalStyle

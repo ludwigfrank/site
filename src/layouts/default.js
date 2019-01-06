@@ -6,6 +6,9 @@ import Navigation from '../components/Navigation'
 import Footer from '$components/Footer'
 import GlobalStyle from '../theme/GlobalStyle'
 
+import '../assets/fonts/Recoleta/styles.css'
+import '../assets/fonts/Theinhardt/styles.css'
+
 export default withTheme(({ children }) => {
     return (
         <Fragment>
