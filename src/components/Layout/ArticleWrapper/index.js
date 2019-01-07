@@ -19,7 +19,7 @@ const Styles = styled('div')`
 `
 
 const ArticleWrapper = ({ children, ...props }) => (
-    <Styles {...props} px={[4, 5]}>
+    <Styles {...props} px={[3, 4, 5]}>
         {children}
     </Styles>
 )

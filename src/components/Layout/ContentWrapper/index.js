@@ -20,7 +20,14 @@ const Styles = styled('div')`
 `
 
 const ContentWrapper = ({ children, theme, stripMobile, ...props }) => (
-    <Styles {...props} px={[stripMobile ? 0 : 4, theme.spacing.contentPadding]}>
+    <Styles
+        {...props}
+        px={[
+            stripMobile ? 0 : 3,
+            stripMobile ? 0 : 4,
+            theme.spacing.contentPadding,
+        ]}
+    >
         {children}
     </Styles>
 )
