@@ -15,7 +15,7 @@ const colors = ['#0CC0B8', '#FAB506', '#FAB506', '#203F99', '#0CC0B8']
 const Wrapper = styled('div').attrs(props => ({
     style: {},
 }))`
-    background: #ecf1f2;
+    background: #fcfcff;
     display: inline-block;
     list-style: none;
     position: relative;
