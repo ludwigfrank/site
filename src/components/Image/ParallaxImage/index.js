@@ -4,6 +4,12 @@ import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import Observer from '@researchgate/react-intersection-observer'
 
+try {
+    require('intersection-observer')
+} catch (error) {
+    console.log(e)
+}
+
 const ImageOuterWrapper = styled('div')`
     overflow: hidden;
     pointer-events: none;
@@ -28,7 +34,6 @@ class ParallaxImage extends Component {
     }
 
     componentDidMount() {
-        require('intersection-observer')
         import('gsap').then(res => (TweenMax = res.TweenMax))
         window.addEventListener('scroll', this.handleScroll)
     }
