@@ -7,8 +7,11 @@ const Video = ({ src, width, height, type = 'video/mp4' }) => {
         <ContentWrapper py={[2, 5, 5]}>
             <StyledVideo>
                 <video
+                    autoplay
                     loop
-                    autoPlay
+                    autobuffer
+                    muted
+                    playsinline
                     width={width ? width : 'auto'}
                     height={height ? height : '100%'}
                 >
