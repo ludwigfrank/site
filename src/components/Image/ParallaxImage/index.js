@@ -7,7 +7,7 @@ import Observer from '@researchgate/react-intersection-observer'
 try {
     require('intersection-observer')
 } catch (error) {
-    console.log(e)
+    console.log(error)
 }
 
 const ImageOuterWrapper = styled('div')`
