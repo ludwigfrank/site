@@ -97,7 +97,7 @@ class Navigation extends PureComponent {
                 disable={this.props.disableHeadroom}
             >
                 <Wrapper height={this.props.height}>
-                    <InnerWrapper px={[4, 5, 5]}>
+                    <InnerWrapper px={[3, 5, 5]}>
                         <Left>
                             <Link
                                 to={'/'}
