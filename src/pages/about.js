@@ -50,8 +50,8 @@ export default function About({ data: { site, me } }) {
                     margin: '0 auto',
                 }}
             />
-            <ArticleWrapper>
-                <H2 mt={[5, 5, 7]} mb={[4, 4, 6]}>
+            <ArticleWrapper mt={[6, 7, 7]}>
+                <H2 mt={[6, 7, 7]} mb={[4, 4, 6]}>
                     Experience
                 </H2>
             </ArticleWrapper>

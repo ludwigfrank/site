@@ -51,7 +51,7 @@ class Contact extends React.Component {
             <Layout>
                 <ArticleWrapper mt={7} mb={6}>
                     <H2>Just drop me a line and break the ice!</H2>
-                    <Paragraph mt={-3} mb={[5, 5, 6]}>
+                    <Paragraph mt={[4, -3, -3]} mb={[5, 5, 6]}>
                         You can also send me an email to{' '}
                         <Link>mail@ludwigfrank.com</Link>.
                     </Paragraph>
