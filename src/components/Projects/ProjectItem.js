@@ -51,7 +51,7 @@ class ProjectItem extends React.Component {
         return (
             <Link to={`articles/${slug}`}>
                 <Wrapper
-                    mb={[0, 4]}
+                    mb={[1, 4]}
                     index={index}
                     mt={index === 0 ? [2, 6] : 0}
                 >
