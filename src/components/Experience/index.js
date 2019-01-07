@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Paragraph, H3 } from '$components/Text'
 import styled from 'styled-components'
 import { space } from 'styled-system'
 

@@ -7,6 +7,7 @@ import { H2, Footnote } from '$components/Text'
 import ParallaxImage from '../Image/ParallaxImage'
 import { Link } from 'gatsby'
 import { media } from '$theme/spacing'
+import Grain from './Grain'
 
 // const colors = ['#FFDD87', '#FD9796', '#A98CED', '#FD9796']
 const colors = ['#0CC0B8', '#FAB506', '#FAB506', '#203F99', '#0CC0B8']
@@ -17,6 +18,7 @@ const Wrapper = styled('div').attrs(props => ({
     background: #ecf1f2;
     display: inline-block;
     list-style: none;
+    position: relative;
     width: 100%;
     overflow: hidden;
     transition: ${props => props.theme.animation.create()};
@@ -55,6 +57,7 @@ class ProjectItem extends React.Component {
                     index={index}
                     mt={index === 0 ? [2, 6] : 0}
                 >
+                    <Grain />
                     <Box p={[4, 5, 6]}>
                         <H2 mb={3} mt={2} strip style={{ fontWeight: 700 }}>
                             {title}
@@ -94,7 +97,7 @@ ProjectItem.propTypes = {
 ProjectItem.defaultProps = {
     title: 'Project Title',
     description: `This is a normal length project description. Please add a small project description to the project. It will feel so much more complete`,
-    date: '2014 – 2019',
+    date: '2014 – 2019',
 }
 
 export default ProjectItem

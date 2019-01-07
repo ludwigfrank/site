@@ -41,11 +41,15 @@ export default function About({ data: { site, me } }) {
                     with Amazon, HP, Massachusetts Institute of Technology,
                     Deutsche Telekom, VW and many more.
                 </Paragraph>
-                <Image
-                    fluid={me.childImageSharp.fluid}
-                    style={{ height: '450px' }}
-                />
             </ArticleWrapper>
+            <Image
+                fluid={me.childImageSharp.fluid}
+                style={{
+                    maxHeight: '450px',
+                    maxWidth: '700px',
+                    margin: '0 auto',
+                }}
+            />
             <ArticleWrapper>
                 <H2 mt={[5, 5, 7]} mb={[4, 4, 6]}>
                     Experience

@@ -4,8 +4,9 @@ export default [
         role: 'User Experience Designer & Developer',
         location: 'Boston, USA',
         time: ['Nov 2018', 'Present'],
-        text: `I am also responsible for the visual design of the mobile and web application. 
-        My role involves engaging with the stakeholders and reasoning concept decisions, user research, envisioning and conceptualizing new functions of the SDK, creating prototypes and user testings.`,
+        text: `In the current project I am responsible for the concept, user research, the user experience and the visual design of the application.
+        I also help implementing the made decisions in the final product.
+        `,
     },
     {
         company: 'Img.ly',
