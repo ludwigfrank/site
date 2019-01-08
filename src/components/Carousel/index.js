@@ -30,7 +30,6 @@ export default class Carousel extends Component {
             throwProps: true,
             edgeResistance: 0.95,
             zIndexBoost: false,
-            allowNativeTouchScrolling: false,
             onDragStart: () => {
                 self.setState({ didDrag: true })
             },
