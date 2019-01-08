@@ -19,8 +19,8 @@ export default class Grain extends React.Component {
         this.canvas = React.createRef()
 
         this.state = {
-            canvasHeight: 240,
-            canvasWidth: 400,
+            canvasHeight: 500,
+            canvasWidth: 460,
         }
     }
 
@@ -40,7 +40,12 @@ export default class Grain extends React.Component {
     }
 
     draw = () => {
-        this.canvasCtx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
+        this.canvasCtx.clearRect(
+            0,
+            0,
+            this.state.canvasWidth,
+            this.state.canvasHeight
+        )
 
         const pattern = this.canvasCtx.createPattern(
             this.patternCanvas,
@@ -48,7 +53,12 @@ export default class Grain extends React.Component {
         )
 
         this.canvasCtx.fillStyle = pattern
-        this.canvasCtx.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
+        this.canvasCtx.fillRect(
+            0,
+            0,
+            this.state.canvasWidth,
+            this.state.canvasHeight
+        )
     }
 
     tick = () => {
@@ -76,7 +86,18 @@ export default class Grain extends React.Component {
             canvasHeight: Math.ceil(height),
             canvasWidth: Math.ceil(width),
         })
+
         this.tick()
+    }
+
+    componentDidUpdate = (prevProps, prevState) => {
+        if (prevState.canvasWidth !== this.state.canvasWidth) {
+            this.setState({
+                canvasWidth: Math.ceil(
+                    this.canvas.current.getBoundingClientRect().width
+                ),
+            })
+        }
     }
 
     render() {
