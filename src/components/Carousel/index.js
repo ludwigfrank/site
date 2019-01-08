@@ -16,9 +16,6 @@ export default class Carousel extends Component {
     }
 
     componentDidMount() {
-        const isIOs =
-            !/iP(hone|od|ad)/.test(navigator.platform) && !window.MSStream
-
         ThrowProps = require('../../lib/vendor/ThrowPropsPlugin')
         this.setState(state => {
             return {
