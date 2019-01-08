@@ -15,7 +15,7 @@ const colors = ['#0CC0B8', '#FAB506', '#FAB506', '#203F99', '#0CC0B8']
 const Wrapper = styled('div').attrs(props => ({
     style: {},
 }))`
-    background: ${props => colors[props.index]};
+    background: #fcfcff;
     display: inline-block;
     list-style: none;
     position: relative;
@@ -23,7 +23,10 @@ const Wrapper = styled('div').attrs(props => ({
     overflow: hidden;
     transition: ${props => props.theme.animation.create()};
     &:hover {
-        background: #fcfcff;
+        background: ${props => colors[props.index]};
+    }
+    &:focus {
+        background: ${props => colors[props.index]};
     }
     ${space}
 `
@@ -53,7 +56,7 @@ class ProjectItem extends React.Component {
         return (
             <Link to={`articles/${slug}`}>
                 <Wrapper
-                    mb={[0, 4]}
+                    mb={[1, 4]}
                     index={index}
                     mt={index === 0 ? [2, 6] : 0}
                 >
