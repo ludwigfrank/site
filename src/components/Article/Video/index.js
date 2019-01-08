@@ -24,6 +24,7 @@ export default class Video extends React.Component {
                         autobuffer
                         muted
                         playsinline
+                        webkit-playsinline
                         width={width ? width : '100%'}
                         height={height ? height : '100%'}
                     >

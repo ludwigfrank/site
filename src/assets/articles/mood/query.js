@@ -106,5 +106,12 @@ export const query = graphql`
                 }
             }
         }
+        animation: file(relativePath: { eq: "articles/mood/images/mood.gif" }) {
+            childImageSharp {
+                fluid(maxWidth: 900, quality: 100) {
+                    ...GatsbyImageSharpFluid_withWebp
+                }
+            }
+        }
     }
 `
