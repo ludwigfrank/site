@@ -7,6 +7,9 @@ export const getElementWidth = ({ imgSrc, maxHeight }, context) => {
 export const getElementDimensions = ({ imgSrc, width, height }, context) => {
     const ratio = context[imgSrc].childImageSharp.fluid.aspectRatio
 
+    if (window && height && height > window.innerHeight * 0.6)
+        height = window.innerHeight * 0.6
+
     let finalWidth = width
         ? `${width}px`
         : height

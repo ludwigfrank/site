@@ -16,6 +16,9 @@ export default class Carousel extends Component {
     }
 
     componentDidMount() {
+        const isIOs =
+            !/iP(hone|od|ad)/.test(navigator.platform) && !window.MSStream
+
         ThrowProps = require('../../lib/vendor/ThrowPropsPlugin')
         this.setState(state => {
             return {
@@ -30,6 +33,7 @@ export default class Carousel extends Component {
             throwProps: true,
             edgeResistance: 0.95,
             zIndexBoost: false,
+            allowNativeTouchScrolling: false,
             onDragStart: () => {
                 self.setState({ didDrag: true })
             },
@@ -74,8 +78,6 @@ export default class Carousel extends Component {
             })
         }
     }
-
-    next = () => {}
 
     calculateSize = () => {
         let totalWidth = 0
@@ -122,6 +124,7 @@ export default class Carousel extends Component {
                             >
                                 {React.cloneElement(element, {
                                     height: this.props.maxHeight,
+                                    maxHeight: '60vh',
                                     borderRadius: true,
                                     shadow: true,
                                     isCarousel: true,

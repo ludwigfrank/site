@@ -18,7 +18,7 @@ const TextContent = styled('div')``
 
 const ProjectBackground = styled(Image)`
     max-width: 600px;
-    min-width: 400px;
+    min-width: 200px;
     max-height: 400px;
     margin: 0 auto;
 `
