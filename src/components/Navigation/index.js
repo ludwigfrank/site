@@ -42,7 +42,7 @@ const StyledLink = styled(Link)`
 `
 
 const LogoFont = styled('span')`
-    font-family: 'Recoleta';
+    font-family: 'Theinhardt';
     font-size: 18px;
     font-weight: bold;
     color: ${props => props.theme.color.text.primary};

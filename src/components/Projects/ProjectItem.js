@@ -58,7 +58,7 @@ class ProjectItem extends React.Component {
                     mt={index === 0 ? [2, 6] : 0}
                 >
                     <Grain />
-                    <Box p={[4, 5, 6]}>
+                    <Box p={['40px', '40px', 6]}>
                         <H2 mb={3} mt={2} strip style={{ fontWeight: 700 }}>
                             {title}
                         </H2>
