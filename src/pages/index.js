@@ -15,7 +15,6 @@ export default function Index({ data: { site, allMdx } }) {
                 <Description mb={[4, 6, 6]} mt={[20, 20, 34]}>
                     Self-made with love.{' '}
                     <Link href={'https://github.com/ludwigfrank/site'}>
-                        {' '}
                         Code here
                     </Link>
                     .
