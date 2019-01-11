@@ -29,7 +29,7 @@ exports.onPreExtractQueries = async ({ store, getNodesByType }) => {
 
     const file = await fs.readFile(`./static/fragments.js`)
 
-    const images = await fs.readdir('./src/pages/articles/us-iran/images')
+    /* const images = await fs.readdir('./src/pages/articles/us-iran/images')
     images.map(image => {
         const p = `
         ${image
@@ -48,7 +48,7 @@ exports.onPreExtractQueries = async ({ store, getNodesByType }) => {
         if (!image.includes('cover')) {
             console.log(p)
         }
-    })
+    }) */
 
     // We have ImageSharp nodes so let's add our fragments to .cache/fragments.
     await fs.appendFile(
