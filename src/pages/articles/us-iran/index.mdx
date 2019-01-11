@@ -38,63 +38,81 @@ One of the vexing issues besetting those active in international relations is th
 
 > » Missed opportunities rose not merely from bad luck but from knowing too little vital information about the other. «
 
-# Image Wall
-
-<Carousel wrapper>
-    <CustomImage imgSrc="main_view" description="Main timeline with spacing" />
-    <CustomImage
-        imgSrc="main_view__entity_hover"
-        description="Hover state of an event or document"
-    />
-    <CustomImage
-        imgSrc="detail_view__timeline_hover"
-        description="Detail view of a single document"
-    />
-    <CustomImage
-        imgSrc="detail_view__timeline_sentiment"
-        description="Detail view with sentiment analysis"
-    />
-    <CustomImage
-        imgSrc="detail_view__timeline_sentiment_compare"
-        description="Compare view of sentiment analysis"
-    />
-</Carousel>
-
-# Image Grid
+# Outcome
 
 <ImageGrid
+    hint
     numColumns={3}
     images={[
         {
             src: 'main_view',
-            description: 'Onboarding',
+            description: 'Main timeline view',
         },
         {
             src: 'main_view__entity_hover',
-            description: 'Onboarding',
+            description: 'Entity hover',
         },
         {
-            src: 'detail_view__timeline_hover',
-            description: 'Preferences',
+            src: 'main_view__entity_hover_timespan',
+            description:
+                'Event hover with timespan that ends outsiede the current viewport',
+        },
+        {
+            src: 'search_view',
+            description: 'Elastic search view',
+        },
+        {
+            src: 'detail_view_default',
+            description: 'Detail view of document',
+        },
+        {
+            src: 'detail_view__tags_out',
+            description:
+                'Detail view with tags panel expanded & entity group size indicator',
+        },
+        {
+            src: 'detail_view__hover_document',
+            description:
+                'Event hover with timespan that ends outsiede the current viewport',
+        },
+        {
+            src: 'detail_view__hover_participant',
+            description: 'Participant hover',
+        },
+        {
+            src: 'detail_view__hover_participant',
+            description: 'Participant hover',
         },
         {
             src: 'detail_view__timeline_sentiment',
-            description: 'Preference deletion',
+            description: 'Detail view with sentiment analysis',
         },
         {
             src: 'detail_view__timeline_sentiment_compare',
-            description: 'Budget',
+            description: 'Detail view with sentiment analysis and compare tag',
         },
     ]}
 />
 
 This project attempts to address this knowledge gap through methods typically used by scholars and policy analysts, such as reading deeply into the history of each country’s foreign policy and relationship with each other. Critical oral history adds to conventional methods by encouraging decision makers to ponder how and why they responded to events and their counterparts. This enables some reflection that typically is not forthcoming in one-on-one interviews. The conferences, briefing documents, and scholars altogether encourage an unusual depth in considering events.
 
-<Gallery>
-    <CustomImage imgSrc="initial_sketches_1" />
-    <CustomImage imgSrc="initial_sketches_2" />
-    <CustomImage imgSrc="initial_sketches_3" />
-</Gallery>
+<ImageGrid
+    numColumns={3}
+    images={[
+        {
+            src: 'initial_sketches_1',
+            description: 'Onboarding',
+        },
+        {
+            src: 'initial_sketches_2',
+            description: 'Onboarding',
+        },
+        {
+            src: 'initial_sketches_3',
+            description: 'Preferences',
+        },
+    ]}
+/>
 
 # Defining the user group
 

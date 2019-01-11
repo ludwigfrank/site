@@ -32,6 +32,7 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
+  background-color: #f8f6f6;
 }
 
 main {

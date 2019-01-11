@@ -10,7 +10,7 @@ const paths = {
 }
 
 const Arm = styled('path')`
-    fill: #fff;
+    fill: #f8f6f6;
     stroke: #1a0641;
     stroke-width: 2px;
 `

@@ -6,6 +6,7 @@ import { MyContext } from '../../DataProvider'
 import CustomImage from './CustomImage'
 import ContentWrapper from '$components/Layout/ContentWrapper'
 import LightBox from '$components/Article/LightBox'
+import Hint from './Hint'
 
 export default class ImageGrid extends Component {
     state = {
@@ -26,6 +27,7 @@ export default class ImageGrid extends Component {
 
     static defaultProps = {
         numColumns: 4,
+        hint: false,
     }
 
     parseContextDataForGallery = contextData => {
@@ -96,7 +98,14 @@ export default class ImageGrid extends Component {
 
     render() {
         return (
-            <ContentWrapper stripMobile my={[5, 6, 6]}>
+            <ContentWrapper
+                stripMobile
+                my={[5, 6, 6]}
+                flex
+                justifyContent={'center'}
+                flexDirection={'column'}
+            >
+                {this.props.hint && <Hint />}
                 <MyContext.Consumer>
                     {context => {
                         const images = this.parseContextDataForGallery(context)

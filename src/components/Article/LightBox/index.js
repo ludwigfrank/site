@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Image from 'gatsby-image'
 
 import EventsWrapper from './EventsWrapper'
-import DragWrapper from './DragWrapper'
 import Controls from './Controls'
-import ClickAwayListener from '$components/ClickAwayListener'
-import { Description } from '$components/Text'
-import { TweenMax, Power3 } from 'gsap/all'
+import Image from './Image'
 
 import { createPortal } from 'react-dom'
+import { easing, tween, styler } from 'popmotion'
 
 class LightBox extends Component {
+    divStylerRight = null
     constructor(props) {
         super(props)
     }
@@ -42,21 +40,14 @@ class LightBox extends Component {
             event.stopPropagation()
         }
 
-        TweenMax.fromTo(
-            document.getElementById('arrow-right'),
-            0.15,
-            {
-                x: 0,
-                scale: 1,
-            },
-            {
-                scale: 0.1,
-                x: 15,
-                repeat: 1,
-                yoyo: true,
-                ease: Power3.easeIn,
-            }
-        )
+        tween({
+            from: { x: 0, scale: 1 },
+            to: { x: 0, scale: 0.9 },
+            duration: 150,
+            elapsed: 400,
+            // loop: 1,
+            yoyo: 1,
+        }).start(styler(document.getElementById('arrow-right')).set)
 
         this.props.onNextClick()
     }
@@ -67,21 +58,14 @@ class LightBox extends Component {
             event.stopPropagation()
         }
 
-        TweenMax.fromTo(
-            document.getElementById('arrow-left'),
-            0.15,
-            {
-                x: 0,
-                scale: 1,
-            },
-            {
-                scale: 0.1,
-                x: -15,
-                repeat: 1,
-                yoyo: true,
-                ease: Power3.easeIn,
-            }
-        )
+        tween({
+            from: { x: 0, scale: 1 },
+            to: { x: 0, scale: 0.9 },
+            duration: 150,
+            elapsed: 400,
+            // loop: 1,
+            yoyo: 1,
+        }).start(styler(document.getElementById('arrow-left')).set)
 
         this.props.onPrevClick()
     }
@@ -111,57 +95,17 @@ class LightBox extends Component {
 
     renderImage = () => {
         const { currentImage, images, onImageClick } = this.props
-        const heightOffset = '80px'
-
-        const {
-            presentationWidth,
-            presentationHeight,
-            aspectRatio,
-        } = currentImage.childImageSharp.fluid
-
-        let h = presentationHeight
-        let w = presentationWidth
-
-        try {
-            if (h > window.innerHeight * 0.85) {
-                h = window.innerHeight * 0.85
-                w = h * aspectRatio
-            }
-
-            if (w > window.innerWidth * 0.85) {
-                w = window.innerWidth * 0.85
-                h = w / aspectRatio
-            }
-        } catch (e) {
-            console.log(e)
-        }
 
         return (
             <div>
-                <DragWrapper
+                <Image
+                    image={currentImage}
                     onRightSwipe={this.nextImage}
                     onLeftSwipe={this.prevImage}
                     onUpSwipe={this.props.onClose}
-                >
-                    <ClickAwayListener onClickAway={() => this.props.onClose()}>
-                        <Image
-                            fluid={currentImage.childImageSharp.fluid}
-                            style={{
-                                maxHeight: `calc(100vh - ${heightOffset})`,
-                                width: `${w}px`,
-                                height: `${h}px`,
-                            }}
-                            critical={true}
-                        />
-                        {currentImage.description && (
-                            <figcaption>
-                                <Description align={'center'} strip mt={3}>
-                                    {currentImage.description}
-                                </Description>
-                            </figcaption>
-                        )}
-                    </ClickAwayListener>
-                </DragWrapper>
+                    onClickAway={this.props.onClose}
+                />
+
                 <Controls
                     onNextClick={this.nextImage}
                     onPrevClick={this.prevImage}
@@ -172,7 +116,6 @@ class LightBox extends Component {
     }
 
     render() {
-        console.log('rerender')
         return this.props.isOpen
             ? [
                   createPortal(this.renderImage(), document.body),

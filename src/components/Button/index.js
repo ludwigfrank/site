@@ -12,17 +12,17 @@ const ButtonWrapper = styled('button')`
     text-align: center;
     min-height: 34px;
     box-sizing: border-box;
-    border-radius: 3px;
-    background: #fff;
-    border: 1px solid ${props => props.theme.color.text.accent};
+    border-radius: 4px;
+    background: ${props => props.theme.color.text.accent}20;
     color: ${props => props.theme.color.text.accent};
     cursor: pointer;
     width: 100%;
+    border: none;
     :focus {
         outline: 0;
     }
     :hover {
-        background-color: #f2f5fd;
+        background: ${props => props.theme.color.text.accent}45;
     }
 `
 

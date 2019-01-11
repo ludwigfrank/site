@@ -3,7 +3,7 @@ import Image from 'gatsby-image'
 import styled from 'styled-components'
 
 const Wrapper = styled('div')`
-    border-radius: 4px;
+    border-radius: 2px;
     box-shadow: ${props => props.theme.shadow[2]};
 `
 

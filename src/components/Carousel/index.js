@@ -107,27 +107,32 @@ export default class Carousel extends Component {
                     key="slider"
                     my={[5]}
                 >
-                    {React.Children.map(this.props.children, (element, id) => {
-                        return (
-                            <div
-                                key={id}
-                                style={{
-                                    display: 'inline-block',
-                                }}
-                                ref={element => {
-                                    this.atoms[id] = element
-                                }}
-                            >
-                                {React.cloneElement(element, {
-                                    height: this.props.maxHeight,
-                                    maxHeight: '60vh',
-                                    borderRadius: true,
-                                    shadow: true,
-                                    isCarousel: true,
-                                })}
-                            </div>
-                        )
-                    })}
+                    {this.props.children.length > 1
+                        ? React.Children.map(
+                              this.props.children,
+                              (element, id) => {
+                                  return (
+                                      <div
+                                          key={id}
+                                          style={{
+                                              display: 'inline-block',
+                                          }}
+                                          ref={element => {
+                                              this.atoms[id] = element
+                                          }}
+                                      >
+                                          {React.cloneElement(element, {
+                                              height: this.props.maxHeight,
+                                              maxHeight: '60vh',
+                                              borderRadius: true,
+                                              shadow: true,
+                                              isCarousel: true,
+                                          })}
+                                      </div>
+                                  )
+                              }
+                          )
+                        : null}
                 </Container>
             </div>
         )

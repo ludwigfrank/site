@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 import { space } from 'styled-system'
+import { media } from '$theme/spacing'
 
 const emojiAnimation = keyframes`
     from {
@@ -22,12 +23,13 @@ const emojiAnimation = keyframes`
     }
 `
 
-export const Emojis = styled('span')`
+export const Emojis = styled('div')`
     position: relative;
     display: inline-block;
     margin-left: 4px;
+    overflow: visible;
 
-    &:before {
+    &:after {
         content: '';
         animation: ${emojiAnimation} 2s infinite linear;
     }
@@ -36,7 +38,14 @@ export const Emojis = styled('span')`
 export const BottomTextWrapper = styled('footer')`
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
     border-top: 1px solid ${props => props.theme.color.interface.seperator};
-    ${space}
+    ${media.phone`
+        flex-direction: column;
+        justify-content: center;
+            align-items: center;
+        > * {
+            margin: 0px;
+        }
+    `}
+    ${space};
 `

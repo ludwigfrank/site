@@ -9,7 +9,7 @@ export const inputBaseStyle = css`
     border: none;
     outline: none;
     width: 100%;
-    background: #f7f9fa;
+    background: #ececec;
     box-sizing: border-box;
     line-height: 32px;
     font-size: 22px;

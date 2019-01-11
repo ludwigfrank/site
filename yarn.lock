@@ -750,6 +750,19 @@
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
 
+"@popmotion/easing@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@popmotion/easing/-/easing-1.0.1.tgz#48336aea29542113df10aeb81b4fd10f0b95f937"
+
+"@popmotion/popcorn@^0.3.0":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@popmotion/popcorn/-/popcorn-0.3.1.tgz#f0f33fbf7ff66f2cd0bf28be24bee0b1d46b65e8"
+  dependencies:
+    "@popmotion/easing" "^1.0.1"
+    framesync "^4.0.1"
+    hey-listen "^1.0.5"
+    style-value-types "^3.0.7"
+
 "@reach/router@^1.1.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.2.1.tgz#34ae3541a5ac44fa7796e5506a5d7274a162be4e"
@@ -2591,14 +2604,6 @@ cli-width@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
 
-clipboard@^2.0.0:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-2.0.4.tgz#836dafd66cf0fea5d71ce5d5b0bf6e958009112d"
-  dependencies:
-    good-listener "^1.2.2"
-    select "^1.1.2"
-    tiny-emitter "^2.0.0"
-
 cliui@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/cliui/-/cliui-3.2.0.tgz#120601537a916d29940f934da3b48d585a39213d"
@@ -3474,10 +3479,6 @@ del@^3.0.0:
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
-
-delegate@^3.1.2:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/delegate/-/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
 
 delegates@^1.0.0:
   version "1.0.0"
@@ -4712,6 +4713,12 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
+framesync@^4.0.0, framesync@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/framesync/-/framesync-4.0.1.tgz#ed7791baf0d266f58ab02000456f82cb384815bf"
+  dependencies:
+    hey-listen "^1.0.5"
+
 fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
@@ -5364,12 +5371,6 @@ glogg@^1.0.0:
   dependencies:
     sparkles "^1.0.0"
 
-good-listener@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/good-listener/-/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
-  dependencies:
-    delegate "^3.1.2"
-
 got@^5.0.0:
   version "5.7.1"
   resolved "http://registry.npmjs.org/got/-/got-5.7.1.tgz#5f81635a61e4a6589f180569ea4e381680a51f35"
@@ -5583,6 +5584,10 @@ gzip-size@3.0.0:
   dependencies:
     duplexer "^0.1.1"
 
+hammerjs@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
+
 handle-thing@^1.2.5:
   version "1.2.5"
   resolved "http://registry.npmjs.org/handle-thing/-/handle-thing-1.2.5.tgz#fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4"
@@ -5783,6 +5788,10 @@ header-case@^1.0.0:
 hex-color-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
+
+hey-listen@^1.0.4, hey-listen@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/hey-listen/-/hey-listen-1.0.5.tgz#6d0a3a2f60177f65bc4404d571a00025bf5dc20e"
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
@@ -8526,6 +8535,18 @@ pngquant-bin@^5.0.0:
     execa "^0.10.0"
     logalot "^2.0.0"
 
+popmotion@^8.5.5:
+  version "8.5.5"
+  resolved "https://registry.yarnpkg.com/popmotion/-/popmotion-8.5.5.tgz#0b6bfa6c82d457e4cccd2375923539b6d975b9e8"
+  dependencies:
+    "@popmotion/easing" "^1.0.1"
+    "@popmotion/popcorn" "^0.3.0"
+    framesync "^4.0.0"
+    hey-listen "^1.0.5"
+    style-value-types "^3.0.6"
+    stylefire "^2.3.4"
+    tslib "^1.9.1"
+
 portfinder@^1.0.9:
   version "1.0.20"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.20.tgz#bea68632e54b2e13ab7b0c4775e9b41bf270e44a"
@@ -8906,12 +8927,6 @@ pretty-error@^2.1.1:
     renderkid "^2.0.1"
     utila "~0.4"
 
-prismjs@^1.15.0:
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.15.0.tgz#8801d332e472091ba8def94976c8877ad60398d9"
-  optionalDependencies:
-    clipboard "^2.0.0"
-
 private@^0.1.6:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
@@ -9171,6 +9186,12 @@ react-event-listener@^0.6.5:
     "@babel/runtime" "7.2.0"
     prop-types "^15.6.0"
     warning "^4.0.1"
+
+react-hammerjs@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-hammerjs/-/react-hammerjs-1.0.1.tgz#bc1ed9e9ef7da057163fb169ce12917b6d6ca7d8"
+  dependencies:
+    hammerjs "^2.0.8"
 
 react-helmet@^5.2.0:
   version "5.2.0"
@@ -9855,10 +9876,6 @@ seek-bzip@^1.0.3, seek-bzip@^1.0.5:
 select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
-
-select@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
 
 selfsigned@^1.9.1:
   version "1.10.4"
@@ -10585,6 +10602,10 @@ style-to-object@^0.2.1:
   dependencies:
     css "2.2.4"
 
+style-value-types@^3.0.6, style-value-types@^3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/style-value-types/-/style-value-types-3.0.7.tgz#6e7a22cc8b1a4465193268ed66ad5f2a82579054"
+
 styled-components@^4.0.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-4.1.2.tgz#f8a685e3b2bcd03c5beac7f2c02bb6ad237da9b3"
@@ -10606,6 +10627,14 @@ styled-system@^3.1.11, styled-system@latest:
   dependencies:
     "@babel/runtime" "^7.1.2"
     prop-types "^15.6.2"
+
+stylefire@^2.3.4:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/stylefire/-/stylefire-2.3.5.tgz#461037d618a560c21f60835b0a4f33c38ad25eae"
+  dependencies:
+    framesync "^4.0.0"
+    hey-listen "^1.0.4"
+    style-value-types "^3.0.6"
 
 stylehacks@^4.0.0:
   version "4.0.1"
@@ -10833,10 +10862,6 @@ timsort@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
 
-tiny-emitter@^2.0.0:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.0.2.tgz#82d27468aca5ade8e5fd1e6d22b57dd43ebdfb7c"
-
 tinycolor2@^1.1.2:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
@@ -10959,7 +10984,7 @@ trough@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/trough/-/trough-1.0.3.tgz#e29bd1614c6458d44869fc28b255ab7857ef7c24"
 
-tslib@^1.6.0, tslib@^1.9.0:
+tslib@^1.6.0, tslib@^1.9.0, tslib@^1.9.1:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
 
