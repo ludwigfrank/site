@@ -28,6 +28,8 @@ export default ({ children, data, ...props }) => {
                                     coverImg {
                                         childImageSharp {
                                             fluid(maxWidth: 700, quality: 90) {
+                                                presentationWidth
+                                                presentationHeight
                                                 ...GatsbyImageSharpFluid_withWebp
                                             }
                                         }

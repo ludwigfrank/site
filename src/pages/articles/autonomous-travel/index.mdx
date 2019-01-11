@@ -13,7 +13,8 @@ priority: 3
 
 import CustomImage from '$components/CustomImage'
 import Carousel from '$components/Carousel'
-import DataProvider from '$components/DataProvider'
+import ImageGrid from '$components/Article/ImageGrid'
+
 import { graphql } from 'gatsby'
 
 export const pageQuery = graphql`
@@ -40,5 +41,44 @@ export const pageQuery = graphql`
     <CustomImage imgSrc="route4" description="Alternative stops" />
     <CustomImage imgSrc="route5" description="Route intervention" />
 </Carousel>
+
+# This is the Image Grid Format
+
+<ImageGrid
+    images={[
+        {
+            src: 'attendants',
+            description: 'Onboarding',
+        },
+        {
+            src: 'attendants2',
+            description: 'Preferences',
+        },
+        {
+            src: 'attendants3',
+            description: 'Preference deletion',
+        },
+        {
+            src: 'money',
+            description: 'Budget',
+        },
+        {
+            src: 'route',
+            description: 'Mood',
+        },
+        {
+            src: 'route2',
+            description: 'Mood',
+        },
+        {
+            src: 'route3',
+            description: 'Mood',
+        },
+        {
+            src: 'route4',
+            description: 'Mood',
+        },
+    ]}
+/>
 
 ## Challenges

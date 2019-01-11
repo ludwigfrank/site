@@ -9,7 +9,7 @@ export const query = graphql`
         ) {
             childImageSharp {
                 fluid(maxWidth: 1400, quality: 80) {
-                    ...GatsbyImageSharpFluid_withWebp
+                    ...DefaultImage
                 }
             }
         }
@@ -20,7 +20,7 @@ export const query = graphql`
         ) {
             childImageSharp {
                 fluid(maxWidth: 1400, quality: 80) {
-                    ...GatsbyImageSharpFluid_withWebp
+                    ...DefaultImage
                 }
             }
         }
@@ -31,7 +31,7 @@ export const query = graphql`
         ) {
             childImageSharp {
                 fluid(maxWidth: 1400, quality: 80) {
-                    ...GatsbyImageSharpFluid_withWebp
+                    ...DefaultImage
                 }
             }
         }
@@ -40,7 +40,7 @@ export const query = graphql`
         ) {
             childImageSharp {
                 fluid(maxWidth: 1400, quality: 80) {
-                    ...GatsbyImageSharpFluid_withWebp
+                    ...DefaultImage
                 }
             }
         }
@@ -51,7 +51,7 @@ export const query = graphql`
         ) {
             childImageSharp {
                 fluid(maxWidth: 1400, quality: 80) {
-                    ...GatsbyImageSharpFluid_withWebp
+                    ...DefaultImage
                 }
             }
         }
@@ -62,7 +62,7 @@ export const query = graphql`
         ) {
             childImageSharp {
                 fluid(maxWidth: 1400, quality: 80) {
-                    ...GatsbyImageSharpFluid_withWebp
+                    ...DefaultImage
                 }
             }
         }
@@ -73,7 +73,7 @@ export const query = graphql`
         ) {
             childImageSharp {
                 fluid(maxWidth: 1400, quality: 80) {
-                    ...GatsbyImageSharpFluid_withWebp
+                    ...DefaultImage
                 }
             }
         }
@@ -84,7 +84,7 @@ export const query = graphql`
         ) {
             childImageSharp {
                 fluid(maxWidth: 1400, quality: 80) {
-                    ...GatsbyImageSharpFluid_withWebp
+                    ...DefaultImage
                 }
             }
         }

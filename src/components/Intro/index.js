@@ -7,8 +7,8 @@ const Intro = () => {
         <ArticleWrapper mt={[7, 7, 8]} mb={200}>
             <Callout>
                 I'm Ludwig Frank, a User Experience Designer and Developer who
-                loves to stay curious, to observe and to solve problems humans
-                around the world face each day.
+                loves to stay curious, to observe and find solutions to the
+                problems humans around the world face each day.
             </Callout>
             <Paragraph>
                 You can find me on{' '}

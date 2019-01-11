@@ -1,4 +1,5 @@
 const path = require('path')
+const fs = require(`fs-extra`)
 
 exports.onCreateWebpackConfig = ({ actions }) => {
     actions.setWebpackConfig({
@@ -13,14 +14,26 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     })
 }
 
-const generateSlug = path => {
-    const arr = path.split('/')
-    arr.pop()
-    return arr.slice(arr.indexOf('articles')).join('/')
-}
-
 exports.onPreBuild = props => {
     console.log(props)
+}
+
+exports.onPreExtractQueries = async ({ store, getNodesByType }) => {
+    const program = store.getState().program
+
+    // Check if there are any ImageSharp nodes. If so add fragments for ImageSharp.
+    // The fragment will cause an error if there are no ImageSharp nodes.
+    if (getNodesByType(`ImageSharp`).length == 0) {
+        return
+    }
+
+    const file = await fs.readFile(`./static/fragments.js`)
+
+    // We have ImageSharp nodes so let's add our fragments to .cache/fragments.
+    await fs.appendFile(
+        `${program.directory}/.cache/fragments/image-sharp-fragments.js`,
+        file
+    )
 }
 
 exports.onCreateNode = ({ node, getNode, actions, ...props }) => {

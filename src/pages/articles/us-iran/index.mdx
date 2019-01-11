@@ -21,6 +21,8 @@ import CustomImage from '$components/CustomImage'
 import Carousel from '$components/Carousel'
 import Gallery from '$components/Layout/Gallery'
 import DataProvider from '$components/DataProvider'
+import ImageGrid from '$components/Article/ImageGrid'
+
 import { graphql } from 'gatsby'
 
 export const pageQuery = graphql`
@@ -36,7 +38,7 @@ One of the vexing issues besetting those active in international relations is th
 
 > » Missed opportunities rose not merely from bad luck but from knowing too little vital information about the other. «
 
-# Outcome
+# Image Wall
 
 <Carousel wrapper>
     <CustomImage imgSrc="main_view" description="Main timeline with spacing" />
@@ -57,6 +59,34 @@ One of the vexing issues besetting those active in international relations is th
         description="Compare view of sentiment analysis"
     />
 </Carousel>
+
+# Image Grid
+
+<ImageGrid
+    numColumns={3}
+    images={[
+        {
+            src: 'main_view',
+            description: 'Onboarding',
+        },
+        {
+            src: 'main_view__entity_hover',
+            description: 'Onboarding',
+        },
+        {
+            src: 'detail_view__timeline_hover',
+            description: 'Preferences',
+        },
+        {
+            src: 'detail_view__timeline_sentiment',
+            description: 'Preference deletion',
+        },
+        {
+            src: 'detail_view__timeline_sentiment_compare',
+            description: 'Budget',
+        },
+    ]}
+/>
 
 This project attempts to address this knowledge gap through methods typically used by scholars and policy analysts, such as reading deeply into the history of each country’s foreign policy and relationship with each other. Critical oral history adds to conventional methods by encouraging decision makers to ponder how and why they responded to events and their counterparts. This enables some reflection that typically is not forthcoming in one-on-one interviews. The conferences, briefing documents, and scholars altogether encourage an unusual depth in considering events.
 
