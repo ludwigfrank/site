@@ -6,10 +6,16 @@ import Intro from '$components/Intro'
 import { Description, Link } from '$components/Text'
 import Hint from '$components/Article/ImageGrid/Hint'
 
-const isMobile = () =>
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-    )
+const isMobile = () => {
+    try {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+        )
+    } catch (e) {
+        console.log(e)
+        return true
+    }
+}
 
 export default function Index({ data: { site, allMdx } }) {
     return (
