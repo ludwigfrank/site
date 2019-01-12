@@ -4,13 +4,25 @@ import Layout from '../layouts/default'
 import Projects from '../components/Projects'
 import Intro from '$components/Intro'
 import { Description, Link } from '$components/Text'
+import Hint from '$components/Article/ImageGrid/Hint'
+
+const isMobile = () =>
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+    )
 
 export default function Index({ data: { site, allMdx } }) {
     return (
         <Layout site={site}>
             <Intro />
+            {isMobile() && (
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Hint>
+                        View on a desktop device for the full experience.
+                    </Hint>
+                </div>
+            )}
             <Projects projects={allMdx.edges} />
-
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <Description mb={[4, 6, 6]} mt={[20, 20, 34]}>
                     Self-made with love.{' '}

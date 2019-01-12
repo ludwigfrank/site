@@ -86,6 +86,28 @@ export const query = graphql`
             }
         }
 
+        final_presentation: file(
+            relativePath: {
+                eq: "articles/us-iran/images/final_presentation.png"
+            }
+        ) {
+            childImageSharp {
+                fluid(maxWidth: 1400, quality: 80) {
+                    ...DefaultImage
+                }
+            }
+        }
+
+        icons_evolution: file(
+            relativePath: { eq: "articles/us-iran/images/icons_evolution.png" }
+        ) {
+            childImageSharp {
+                fluid(maxWidth: 1400, quality: 80) {
+                    ...DefaultImage
+                }
+            }
+        }
+
         initial_sketches_1: file(
             relativePath: {
                 eq: "articles/us-iran/images/initial_sketches_1.jpeg"

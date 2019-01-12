@@ -9,10 +9,7 @@ export default class Hint extends React.Component {
     render() {
         return (
             <Wrapper>
-                <Description strip>
-                    {' '}
-                    Tap the images to enlarge them.
-                </Description>
+                <Description strip>{this.props.children}</Description>
             </Wrapper>
         )
     }

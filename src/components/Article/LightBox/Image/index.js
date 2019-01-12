@@ -57,8 +57,8 @@ export default class Image extends Component {
                 w = h * aspectRatio
             }
 
-            if (w > window.innerWidth * 0.85) {
-                w = window.innerWidth * 0.85
+            if (w > window.innerWidth * 0.95) {
+                w = window.innerWidth * 0.95
                 h = w / aspectRatio
             }
         } catch (e) {

@@ -90,7 +90,6 @@ export default class ImageGrid extends Component {
     }
 
     handleLightboxClose = () => {
-        console.log('close')
         this.setState({
             lightBoxOpen: false,
         })
@@ -105,7 +104,7 @@ export default class ImageGrid extends Component {
                 justifyContent={'center'}
                 flexDirection={'column'}
             >
-                {this.props.hint && <Hint />}
+                {this.props.hint && <Hint>Tap images to enlarge.</Hint>}
                 <MyContext.Consumer>
                     {context => {
                         const images = this.parseContextDataForGallery(context)
