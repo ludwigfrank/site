@@ -4,6 +4,7 @@ export const Wrapper = styled('div')`
     width: auto;
     position: relative;
     height: auto;
+    margin: 0 auto;
     ${props =>
         props.shadow &&
         css`
