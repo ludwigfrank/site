@@ -6,7 +6,7 @@ import ProjectList from './ProjectList'
 export default class Projects extends Component {
     render() {
         return (
-            <ContentWrapper stripMobile mt={[2, 4, 6]}>
+            <ContentWrapper stripMobile pt={[2, 4, 6]} id="projects">
                 <ProjectList projects={this.props.projects} />
             </ContentWrapper>
         )

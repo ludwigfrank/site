@@ -4,6 +4,7 @@ import React, { PureComponent } from 'react'
 import defaultStyles from '../Text/defaultStyles'
 import { space } from 'styled-system'
 
+import { media } from '$theme/spacing'
 import Logo from './logo'
 import { Link } from 'gatsby'
 import HeadRoom from './util/HeadRoom'
@@ -36,9 +37,14 @@ const Right = styled('div')`
 const StyledLink = styled(Link)`
     text-decoration: none;
     ${defaultStyles}
-    font-size: 16px;
     margin-left: 24px;
-    opacity: 0.65;
+    font-size: 18px;
+    line-height: 26px;
+    opacity: 0.85;
+    ${media.phone`
+        font-size: 16px;
+        line-height: 23px;
+    `}
 `
 
 const LogoFont = styled('span')`
@@ -49,10 +55,10 @@ const LogoFont = styled('span')`
 `
 
 const links = [
-    /*   {
+    {
         name: 'Projects',
-        href: '/projects'
-    },*/
+        href: '/#projects',
+    },
     {
         name: 'My Story',
         href: '/about',
@@ -83,6 +89,7 @@ class Navigation extends PureComponent {
                 key={link.name}
                 activeStyle={{
                     opacity: 1,
+                    color: 'black',
                 }}
             >
                 {link.name}
@@ -90,11 +97,21 @@ class Navigation extends PureComponent {
         ))
     }
 
+    get disableHeadRoom() {
+        try {
+            return !window.location.href.includes('article')
+        } catch (e) {
+            console.log(e)
+        }
+
+        return true
+    }
+
     render() {
         return (
             <HeadRoom
                 unPinOnStart={this.props.unPinOnStart}
-                disable={this.props.disableHeadroom}
+                disable={this.disableHeadRoom}
             >
                 <Wrapper height={this.props.height}>
                     <InnerWrapper px={[3, 5, 5]}>
@@ -102,6 +119,7 @@ class Navigation extends PureComponent {
                             <Link
                                 to={'/'}
                                 key={'/'}
+                                activeStyle={{ color: 'black' }}
                                 style={{ textDecoration: 'none' }}
                             >
                                 {/*<Logo mt={'5px'} /> */}
