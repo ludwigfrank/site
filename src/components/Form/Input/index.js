@@ -4,7 +4,7 @@ import { Caption } from '$components/Text'
 import { InputWrapper } from './styles'
 import Textarea from '../Textarea'
 
-const Input = ({ label, type, name, multiline, placeholder }) => {
+const Input = ({ label, type, name, multiline, placeholder, onChange }) => {
     let InputComponent = multiline ? Textarea : InputWrapper
 
     return (
@@ -13,6 +13,7 @@ const Input = ({ label, type, name, multiline, placeholder }) => {
             <InputComponent
                 type={type}
                 name={name}
+                onChange={onChange}
                 placeholder={placeholder}
                 px={[4, 4, 4]}
                 pt={['16px', '16px', '16px']}

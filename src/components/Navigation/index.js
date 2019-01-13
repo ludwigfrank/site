@@ -21,7 +21,7 @@ const InnerWrapper = styled('div')`
     max-width: ${props => props.theme.spacing.contentMaxWidth};
     margin: 0 auto;
     height: 100%;
-    line-height: 64px;
+    line-height: 80px;
     ${space};
 `
 
@@ -60,7 +60,7 @@ const links = [
         href: '/#projects',
     },
     {
-        name: 'My Story',
+        name: 'Story',
         href: '/about',
     },
     {
@@ -78,7 +78,7 @@ class Navigation extends PureComponent {
     }
 
     static defaultProps = {
-        height: '64px',
+        height: '80px',
         disableHeadroom: false,
     }
 

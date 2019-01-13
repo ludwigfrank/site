@@ -42,7 +42,10 @@ class Contact extends React.Component {
         e.preventDefault()
     }
 
-    handleChange = e => this.setState({ [e.target.name]: e.target.value })
+    handleChange = e => {
+        console.log(e)
+        this.setState({ [e.target.name]: e.target.value })
+    }
 
     render() {
         const { name, email, message } = this.state

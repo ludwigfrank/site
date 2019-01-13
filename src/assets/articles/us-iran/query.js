@@ -187,5 +187,15 @@ export const query = graphql`
                 }
             }
         }
+
+        timeline_sketch: file(
+            relativePath: { eq: "articles/us-iran/images/timeline_sketch.png" }
+        ) {
+            childImageSharp {
+                fluid(maxWidth: 1400, quality: 90) {
+                    ...DefaultImage
+                }
+            }
+        }
     }
 `

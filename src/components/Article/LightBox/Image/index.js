@@ -85,7 +85,13 @@ export default class Image extends Component {
                     zoom={this.state.zoom}
                 >
                     <ClickAwayListener onClickAway={() => onClickAway()}>
-                        <div>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                            }}
+                        >
                             <GatsbyImage
                                 fluid={{
                                     ...image.childImageSharp.fluid,
@@ -99,7 +105,9 @@ export default class Image extends Component {
                                 critical={true}
                             />
                             {image.description && this.state.zoom === 1 && (
-                                <figcaption>
+                                <figcaption
+                                    style={{ maxWidth: '80vw', height: 0 }}
+                                >
                                     <Description align={'center'} strip mt={3}>
                                         {image.description}
                                     </Description>
