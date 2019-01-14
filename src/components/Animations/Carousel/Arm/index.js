@@ -40,8 +40,8 @@ class ArmAnimation extends React.Component {
             TweenMax.to(this.myRef.current, 1, {
                 attr: {
                     d: isVisible ? paths.armTwo : paths.armThree,
-                    opacity: isVisible ? 1 : 0,
                 },
+                opacity: isVisible ? 1 : 0,
                 ease: isVisible ? 'ease-in-out' : Power4.easeOut,
                 yoyo: isVisible ? true : false,
                 repeat: isVisible ? -1 : 0,
