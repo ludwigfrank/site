@@ -37,11 +37,14 @@ export default class Carousel extends Component {
         ThrowProps = require('../../lib/vendor/ThrowPropsPlugin')
 
         let height = this.props.maxHeight
+        let padding = 24
 
         try {
             height > window.innerHeight * 0.5
                 ? (height = window.innerHeight * 0.5)
                 : (height = height)
+
+            if (window.innerWidth < 600) padding = 16
         } catch (e) {
             console.log(e)
         }
@@ -50,6 +53,7 @@ export default class Carousel extends Component {
             return {
                 carouselElements: Object.values(this.atoms),
                 maxHeight: height,
+                padding: padding,
             }
         })
 

@@ -15,6 +15,8 @@ export const Container = styled('div')`
 export const ArmWrapper = styled('div')`
     position: absolute;
     z-index: 10;
+    touch-action: none;
+    pointer-events: none;
     bottom: -40px;
     opacity: ${props => (props.didDrag ? 0 : 1)};
     transition: ${props => props.theme.animation.create()};
