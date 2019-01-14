@@ -4,6 +4,7 @@ import { H2, Paragraph, Link } from '$components/Text'
 import { Input } from '$components/Form'
 import Button from '$components/Button'
 import Layout from '../layouts/default'
+import { navigate } from 'gatsby'
 
 const encode = data => {
     return Object.keys(data)
@@ -36,7 +37,7 @@ class Contact extends React.Component {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: encode({ 'form-name': 'contact', ...this.state }),
         })
-            .then(() => alert('Success!'))
+            .then(() => navigate('/contact-success'))
             .catch(error => alert(error))
 
         e.preventDefault()
