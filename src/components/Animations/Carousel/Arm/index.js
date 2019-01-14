@@ -33,16 +33,6 @@ class ArmAnimation extends React.Component {
         isVisible: true,
     }
 
-    componentDidMount() {
-        if (this.props.animationElement) {
-            TweenMax.to(this.props.animationElement, 1, {
-                x: 20,
-                yoyo: true,
-                repeat: -1,
-            })
-        }
-    }
-
     render() {
         const { isVisible } = this.props
 

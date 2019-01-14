@@ -119,10 +119,7 @@ export default class Carousel extends Component {
                 style={{ position: 'relative' }}
             >
                 <ArmWrapper didDrag={false}>
-                    <ArmAnimation
-                        animationElement={this.container}
-                        isVisible={!this.state.didDrag}
-                    />
+                    <ArmAnimation isVisible={!this.state.didDrag} />
                 </ArmWrapper>
                 <div
                     key="position-ref"
