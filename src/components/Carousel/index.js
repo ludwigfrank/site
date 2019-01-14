@@ -9,13 +9,18 @@ import ArmAnimation from '$components/Animations/Carousel/Arm'
 
 let ThrowProps
 export default class Carousel extends Component {
-    atoms = {}
-    state = {
-        padding: 24,
-        intervalId: null,
-        carouselElements: [],
-        didDrag: false,
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            padding: 24,
+            intervalId: null,
+            carouselElements: [],
+            didDrag: false,
+            maxHeight: props.maxHeight,
+        }
     }
+    atoms = {}
 
     static propTypes = {
         images: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
@@ -30,9 +35,21 @@ export default class Carousel extends Component {
 
     componentDidMount() {
         ThrowProps = require('../../lib/vendor/ThrowPropsPlugin')
+
+        let height = this.props.maxHeight
+
+        try {
+            height > window.innerHeight * 0.5
+                ? (height = window.innerHeight * 0.5)
+                : (height = height)
+        } catch (e) {
+            console.log(e)
+        }
+
         this.setState(state => {
             return {
                 carouselElements: Object.values(this.atoms),
+                maxHeight: height,
             }
         })
 
@@ -69,9 +86,12 @@ export default class Carousel extends Component {
     }
 
     componentDidUpdate = (prevProps, prevState) => {
-        const { carouselElements } = this.state
+        const { carouselElements, maxHeight } = this.state
 
-        if (carouselElements !== prevState.carouselElements) {
+        if (
+            carouselElements !== prevState.carouselElements ||
+            maxHeight !== prevState.maxHeight
+        ) {
             let outerWidth = 0
 
             carouselElements.forEach(element => {
@@ -103,16 +123,6 @@ export default class Carousel extends Component {
     }
 
     renderContent = () => {
-        let height = this.props.maxHeight
-
-        try {
-            height > window.innerHeight * 0.5
-                ? (height = window.innerHeight * 0.5)
-                : (height = height)
-        } catch (e) {
-            console.log(e)
-        }
-
         return (
             <div
                 ref={element => (this.heightWrapper = element)}
@@ -145,7 +155,7 @@ export default class Carousel extends Component {
                                         }}
                                     >
                                         {React.cloneElement(element, {
-                                            height: height,
+                                            height: this.state.maxHeight,
                                             maxHeight: '60vh',
                                             borderRadius: true,
                                             shadow: true,
