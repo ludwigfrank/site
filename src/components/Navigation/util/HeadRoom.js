@@ -9,7 +9,7 @@ const Inner = styled('div')`
     top: 0;
     left: 0;
     right: 0;
-    z-index: 10000;
+    z-index: 100;
     position: fixed;
     background-color: #f8f6f6;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);

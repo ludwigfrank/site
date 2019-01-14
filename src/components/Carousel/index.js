@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
 import { Container, ArmWrapper } from './styles'
 import { Draggable, TweenMax } from 'gsap/all'
 
@@ -13,6 +15,17 @@ export default class Carousel extends Component {
         intervalId: null,
         carouselElements: [],
         didDrag: false,
+    }
+
+    static propTypes = {
+        images: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
+    }
+
+    static defaultProps = {
+        shouldRotate: true,
+        rotateInterval: 4000,
+        maxHeight: 600,
+        images: false,
     }
 
     componentDidMount() {
@@ -90,13 +103,26 @@ export default class Carousel extends Component {
     }
 
     renderContent = () => {
+        let height = this.props.maxHeight
+
+        try {
+            height > window.innerHeight * 0.5
+                ? (height = window.innerHeight * 0.5)
+                : (height = height)
+        } catch (e) {
+            console.log(e)
+        }
+
         return (
             <div
                 ref={element => (this.heightWrapper = element)}
                 style={{ position: 'relative' }}
             >
-                <ArmWrapper didDrag={this.state.didDrag}>
-                    <ArmAnimation animationElement={this.container} />
+                <ArmWrapper didDrag={false}>
+                    <ArmAnimation
+                        animationElement={this.container}
+                        isVisible={!this.state.didDrag}
+                    />
                 </ArmWrapper>
                 <div
                     key="position-ref"
@@ -107,32 +133,34 @@ export default class Carousel extends Component {
                     key="slider"
                     my={[5]}
                 >
-                    {this.props.children.length > 1
-                        ? React.Children.map(
-                              this.props.children,
-                              (element, id) => {
-                                  return (
-                                      <div
-                                          key={id}
-                                          style={{
-                                              display: 'inline-block',
-                                          }}
-                                          ref={element => {
-                                              this.atoms[id] = element
-                                          }}
-                                      >
-                                          {React.cloneElement(element, {
-                                              height: this.props.maxHeight,
-                                              maxHeight: '60vh',
-                                              borderRadius: true,
-                                              shadow: true,
-                                              isCarousel: true,
-                                          })}
-                                      </div>
-                                  )
-                              }
-                          )
-                        : null}
+                    {this.props.children.length > 1 ? (
+                        React.Children.map(
+                            this.props.children,
+                            (element, id) => {
+                                return (
+                                    <div
+                                        key={id}
+                                        style={{
+                                            display: 'inline-block',
+                                        }}
+                                        ref={element => {
+                                            this.atoms[id] = element
+                                        }}
+                                    >
+                                        {React.cloneElement(element, {
+                                            height: height,
+                                            maxHeight: '60vh',
+                                            borderRadius: true,
+                                            shadow: true,
+                                            isCarousel: true,
+                                        })}
+                                    </div>
+                                )
+                            }
+                        )
+                    ) : (
+                        <div />
+                    )}
                 </Container>
             </div>
         )
@@ -143,10 +171,4 @@ export default class Carousel extends Component {
             return <ContentWrapper>{this.renderContent()}</ContentWrapper>
         return this.renderContent()
     }
-}
-
-Carousel.defaultProps = {
-    shouldRotate: true,
-    rotateInterval: 4000,
-    maxHeight: 600,
 }

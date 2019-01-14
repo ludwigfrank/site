@@ -6,32 +6,36 @@ import Controls from './Controls'
 import Image from './Image'
 
 import { createPortal } from 'react-dom'
+import { TweenMax, Power4 } from 'gsap/all'
 import { easing, tween, styler } from 'popmotion'
 
 class LightBox extends Component {
-    divStylerRight = null
-    constructor(props) {
-        super(props)
+    state = {
+        render: true,
     }
 
     static propTypes = {
         currentImage: PropTypes.object,
         images: PropTypes.array,
         isOpen: PropTypes.bool,
+        controls: PropTypes.bool,
     }
 
     static defaultProps = {
         onPrevClick: () => console.log('Previous image click.'),
         onNextClick: () => console.log('Next image click.'),
         isOpen: false,
+        controls: true,
     }
 
     componentDidMount = () => {
         window.addEventListener('keydown', this.handleKeyboardInput)
+        window.addEventListener('scroll', this.handleScroll)
     }
 
     componentWillUnmount = () => {
         window.removeEventListener('keydown', this.handleKeyboardInput)
+        window.removeEventListener('scroll', this.handleScroll)
     }
 
     nextImage = event => {
@@ -40,14 +44,13 @@ class LightBox extends Component {
             event.stopPropagation()
         }
 
-        tween({
-            from: { x: 0, scale: 1 },
-            to: { x: 0, scale: 0.9 },
-            duration: 150,
-            elapsed: 400,
-            // loop: 1,
+        TweenMax.to(document.getElementById('arrow-right'), 0.1, {
+            backgroundColor: '#00',
+            scale: 0.75,
             yoyo: 1,
-        }).start(styler(document.getElementById('arrow-right')).set)
+            repeat: 1,
+            yoyo: true,
+        })
 
         this.props.onNextClick()
     }
@@ -58,14 +61,13 @@ class LightBox extends Component {
             event.stopPropagation()
         }
 
-        tween({
-            from: { x: 0, scale: 1 },
-            to: { x: 0, scale: 0.9 },
-            duration: 150,
-            elapsed: 400,
-            // loop: 1,
+        TweenMax.to(document.getElementById('arrow-right'), 0.1, {
+            backgroundColor: '#00',
+            scale: 0.75,
             yoyo: 1,
-        }).start(styler(document.getElementById('arrow-left')).set)
+            repeat: 1,
+            yoyo: true,
+        })
 
         this.props.onPrevClick()
     }
@@ -93,8 +95,12 @@ class LightBox extends Component {
         return false
     }
 
+    handleScroll = event => {
+        this.props.onClose()
+    }
+
     renderImage = () => {
-        const { currentImage, images, onImageClick } = this.props
+        const { currentImage, images, controls, onImageClick } = this.props
 
         return (
             <div>
@@ -106,11 +112,13 @@ class LightBox extends Component {
                     onClickAway={this.props.onClose}
                 />
 
-                <Controls
-                    onNextClick={this.nextImage}
-                    onPrevClick={this.prevImage}
-                    onCloseClick={this.props.onClose}
-                />
+                {controls && (
+                    <Controls
+                        onNextClick={this.nextImage}
+                        onPrevClick={this.prevImage}
+                        onCloseClick={this.props.onClose}
+                    />
+                )}
             </div>
         )
     }

@@ -47,7 +47,7 @@ class ParallaxImage extends Component {
         const currentPos = y
         const percentage = 0.5 - getPercentage(startPos, endPos, currentPos)
 
-        if (TweenMax !== null) {
+        if (TweenMax !== null && typeof TweenMax !== 'undefined') {
             TweenMax.to(this.image, 1, {
                 ease: 'easeInOut',
                 y: 80 * percentage,

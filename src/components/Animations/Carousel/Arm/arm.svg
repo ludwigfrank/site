@@ -1,0 +1,3 @@
+<svg viewBox="0 0 116 273" width="120" overflow="overlay">
+                    <Arm ref={this.myRef} d={paths.armOne} />
+</svg>

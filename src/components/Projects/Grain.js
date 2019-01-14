@@ -109,7 +109,7 @@ export default class Grain extends React.Component {
                 style={{
                     width: '100%',
                     height: '100%',
-                    zIndex: 200,
+                    zIndex: 50,
                     position: 'absolute',
                     left: 0,
                 }}

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import baseStyles from '$components/Text'
+import baseStyles from '$components/Text/defaultStyles'
 import { space } from 'styled-system'
 
 export const inputBaseStyle = css`
