@@ -4,7 +4,7 @@ import { Callout, Paragraph, Link } from '$components/Text'
 
 const Intro = () => {
     return (
-        <ArticleWrapper mt={[7, 7, 8]} mb={200}>
+        <ArticleWrapper mt={[7, 7, 8]} mb={140}>
             <Callout>
                 I'm Ludwig Frank, a User Experience Designer and Developer who
                 loves to stay curious, to observe and find solutions to the
