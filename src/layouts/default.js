@@ -16,7 +16,10 @@ export default withTheme(({ children }) => {
                 title={'Ludwig Frank Portfolio'}
                 meta={[
                     { name: 'description', content: 'Ludwig Frank Portfolio' },
-                    { name: 'keywords', content: ['keywords'] },
+                    {
+                        name: 'keywords',
+                        content: ['ludwig', 'frank', 'design', 'protfolio'],
+                    },
                 ]}
             >
                 <html lang="en" />
