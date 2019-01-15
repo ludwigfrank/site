@@ -5,7 +5,6 @@ import ContentWrapper from '$components/Layout/ContentWrapper'
 
 const Wrapper = styled('div')`
     margin: 0 auto;
-    max-width: 1056px;
     position: relative;
     box-shadow: ${props => props.theme.shadow[6]};
     padding-top: ${({ dimensions }) =>
@@ -22,8 +21,10 @@ const Frame = styled('iframe')`
 `
 
 const Vimeo = ({ src, width, height }) => {
+    width < 1056 ? (width = width) : (width = 1056)
+
     return (
-        <ContentWrapper stripMobile>
+        <ContentWrapper stripMobile style={{ maxWidth: width + 'px' }}>
             <Wrapper dimensions={[width, height]}>
                 <Frame
                     src={src}

@@ -116,7 +116,7 @@ const ArticleMeta = ({ meta }) => {
             <Box width={[1, 1, 1 / 2]}>
                 {renderTime(time)}
                 {renderClient(client)}
-                {renderTeam(team)}
+                {team.length > 0 && renderTeam(team)}
             </Box>
             <Box width={[1, 1, 1 / 2]} style={{ position: 'relative' }}>
                 <H3 mt={[5, 5, 1]} pb={[3, 3, 0]} strip>

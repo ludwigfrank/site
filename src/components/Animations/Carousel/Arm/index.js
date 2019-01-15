@@ -37,15 +37,21 @@ class ArmAnimation extends React.Component {
         const { isVisible } = this.props
 
         if (this.myRef.current) {
-            TweenMax.to(this.myRef.current, 1, {
+            this.animation = TweenMax.to(this.myRef.current, 1, {
                 attr: {
                     d: isVisible ? paths.armTwo : paths.armThree,
                 },
                 opacity: isVisible ? 1 : 0,
                 ease: isVisible ? 'ease-in-out' : Power4.easeOut,
-                yoyo: isVisible ? true : false,
-                repeat: isVisible ? -1 : 0,
             })
+                .repeat(-1)
+                .yoyo(true)
+        }
+
+        try {
+            this.animation.play()
+        } catch (e) {
+            console.log(e)
         }
 
         return (
