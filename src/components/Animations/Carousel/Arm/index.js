@@ -43,17 +43,10 @@ class ArmAnimation extends React.Component {
                 },
                 opacity: isVisible ? 1 : 0,
                 ease: isVisible ? 'ease-in-out' : Power4.easeOut,
+                repeat: isVisible ? -1 : 0,
+                yoyo: isVisible ? true : false,
             })
-                .repeat(-1)
-                .yoyo(true)
         }
-
-        try {
-            this.animation.play()
-        } catch (e) {
-            console.log(e)
-        }
-
         return (
             <div id="arm-two">
                 <svg viewBox="0 0 116 273" width="120" overflow="overlay">
