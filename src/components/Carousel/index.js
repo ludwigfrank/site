@@ -27,6 +27,8 @@ export default class Carousel extends Component {
     constructor(props) {
         super(props)
 
+        this.myRef = React.createRef()
+
         this.state = {
             padding: 24,
             intervalId: null,
@@ -143,8 +145,9 @@ export default class Carousel extends Component {
 
     renderContent = () => {
         const isVisible = !this.state.didDrag
-        try {
-            TweenMax.to('#arm', 1, {
+
+        if (this.myRef.current) {
+            TweenMax.to(this.myRef.current, 1, {
                 attr: {
                     d: isVisible ? paths.armTwo : paths.armThree,
                 },
@@ -153,8 +156,6 @@ export default class Carousel extends Component {
                 repeat: isVisible ? -1 : 0,
                 yoyo: isVisible ? true : false,
             })
-        } catch (e) {
-            console.log(e)
         }
 
         return (
