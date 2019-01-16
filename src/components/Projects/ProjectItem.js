@@ -12,6 +12,13 @@ import Grain from './Grain'
 // const colors = ['#FFDD87', '#FD9796', '#A98CED', '#FD9796']
 const colors = ['#0CC0B8', '#FAB506', '#FAB506', '#203F99', '#0CC0B8']
 
+const col = {
+    green: '#0CC0B8',
+    yellow: '#FAB506',
+    blue: '#203F99',
+    red: '#F04E3B',
+}
+
 const Wrapper = styled('div').attrs(props => ({
     style: {},
 }))`
@@ -23,10 +30,10 @@ const Wrapper = styled('div').attrs(props => ({
     overflow: hidden;
     transition: ${props => props.theme.animation.create()};
     &:hover {
-        background: ${props => colors[props.index]};
+        background: ${props => props.color};
     }
     &:focus {
-        background: ${props => colors[props.index]};
+        background: ${props => props.color};
     }
     ${space}
 `
@@ -51,13 +58,18 @@ const ImgWrapperInner = styled('div')`
 `
 
 class ProjectItem extends React.Component {
+    shouldComponentUpdate = (nextProps, nextState) => {
+        return false
+    }
+
     render() {
-        const { title, description, coverImg, slug, index } = this.props
+        const { title, description, coverImg, slug, index, color } = this.props
         return (
             <Link to={`articles/${slug}`}>
                 <Wrapper
                     mb={[1, 4]}
                     index={index}
+                    color={col[color]}
                     mt={index === 0 ? [2, 6] : 0}
                 >
                     <Grain />

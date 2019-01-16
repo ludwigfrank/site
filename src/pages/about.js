@@ -67,7 +67,7 @@ export const pageQuery = graphql`
         site {
             ...site
         }
-        me: file(relativePath: { eq: "myself.jpg" }) {
+        me: file(relativePath: { eq: "me.png" }) {
             childImageSharp {
                 fluid(maxWidth: 1200, quality: 100) {
                     ...GatsbyImageSharpFluid_withWebp

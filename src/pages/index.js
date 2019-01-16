@@ -21,13 +21,6 @@ export default function Index({ data: { site, allMdx } }) {
     return (
         <Layout site={site}>
             <Intro />
-            {isMobile() && (
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Hint>
-                        View on a desktop device for the full experience.
-                    </Hint>
-                </div>
-            )}
             <Projects projects={allMdx.edges} />
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <Description mb={[4, 6, 6]} mt={[20, 20, 34]}>
@@ -67,6 +60,7 @@ export const pageQuery = graphql`
                             responsibility
                         }
                         priority
+                        color
                     }
                 }
             }

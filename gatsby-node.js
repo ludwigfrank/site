@@ -151,5 +151,11 @@ exports.onCreateNode = ({ node, getNode, actions, ...props }) => {
             node,
             banner: node.frontmatter.priority,
         })
+
+        createNodeField({
+            name: 'color',
+            node,
+            banner: node.frontmatter.color,
+        })
     }
 }
