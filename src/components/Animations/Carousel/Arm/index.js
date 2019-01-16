@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { TweenMax, Power4, TweenLite } from 'gsap/all'
+import { TweenMax, Power4 } from 'gsap/all'
 import styled, { keyframes } from 'styled-components'
 
 const paths = {
