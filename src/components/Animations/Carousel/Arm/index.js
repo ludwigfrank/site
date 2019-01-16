@@ -51,7 +51,7 @@ class ArmAnimation extends React.Component {
         const { isVisible } = this.props
         TweenMax.to('#arm', 1, {
             attr: {
-                d: isVisible ? paths.armTwo : paths.armThree,
+                d: paths.armTwo,
             },
             opacity: isVisible ? 1 : 0,
             ease: isVisible ? 'ease-in-out' : Power4.easeOut,
@@ -66,7 +66,7 @@ class ArmAnimation extends React.Component {
         if (this.myRef.current) {
             TweenMax.to(this.myRef.current, 1, {
                 attr: {
-                    d: isVisible ? paths.armTwo : paths.armThree,
+                    d: paths.armTwo,
                 },
                 opacity: isVisible ? 1 : 0,
                 ease: isVisible ? 'ease-in-out' : Power4.easeOut,
