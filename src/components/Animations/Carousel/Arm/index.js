@@ -63,6 +63,18 @@ class ArmAnimation extends React.Component {
     render() {
         const { isVisible } = this.props
 
+        if (this.myRef.current) {
+            TweenMax.to(this.myRef.current, 1, {
+                attr: {
+                    d: isVisible ? paths.armTwo : paths.armThree,
+                },
+                opacity: isVisible ? 1 : 0,
+                ease: isVisible ? 'ease-in-out' : Power4.easeOut,
+                repeat: isVisible ? -1 : 0,
+                yoyo: isVisible ? true : false,
+            })
+        }
+
         return (
             <div id="arm-two">
                 <svg viewBox="0 0 116 273" width="120" overflow="overlay">
