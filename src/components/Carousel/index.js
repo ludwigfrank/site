@@ -143,15 +143,19 @@ export default class Carousel extends Component {
 
     renderContent = () => {
         const isVisible = !this.state.didDrag
-        TweenMax.to('#arm', 1, {
-            attr: {
-                d: isVisible ? paths.armTwo : paths.armThree,
-            },
-            opacity: isVisible ? 1 : 0,
-            ease: isVisible ? 'ease-in-out' : 'ease-out',
-            repeat: isVisible ? -1 : 0,
-            yoyo: isVisible ? true : false,
-        })
+        try {
+            TweenMax.to('#arm', 1, {
+                attr: {
+                    d: isVisible ? paths.armTwo : paths.armThree,
+                },
+                opacity: isVisible ? 1 : 0,
+                ease: isVisible ? 'ease-in-out' : 'ease-out',
+                repeat: isVisible ? -1 : 0,
+                yoyo: isVisible ? true : false,
+            })
+        } catch (e) {
+            console.log(e)
+        }
 
         return (
             <div
