@@ -12,6 +12,7 @@ import {
 import ContentWrapper from '$components/Layout/ContentWrapper'
 import { Box } from '@rebass/grid'
 import { BottomSeperator } from './styles'
+import Vimeo from '../Vimeo/article'
 
 const HEADER_SPACING = 2
 const renderTeam = team => {
@@ -85,21 +86,26 @@ const renderClient = client => {
     )
 }
 
-const renderIntroSection = (title, content) => {
-    return (
-        <Box mt={[5, 5, 5]}>
-            <Caption mb={HEADER_SPACING} themeColor="tertiary">
-                {title}
-            </Caption>
-            <Footnote mb={1} mt={0}>
-                {content}
-            </Footnote>
-        </Box>
-    )
+const renderPreviewMedia = ({ mediaItem, type }) => {
+    if (type === 'video') {
+        return (
+            <Vimeo
+                style={{
+                    position: 'absolute',
+                    transform: 'translateY(-400px)',
+                }}
+                strip
+                src={mediaItem.src}
+                width={parseInt(mediaItem.width) / 3}
+                height={parseInt(mediaItem.height) / 3}
+            />
+        )
+    }
+    return null
 }
 
 const ArticleMeta = ({ meta }) => {
-    const { team, time, description, client, title, role, intro } = meta
+    const { team, time, description, client, title, role, intro, media } = meta
 
     return [
         <ContentWrapper mt={[7, 7, 7]} key="header">
@@ -119,6 +125,7 @@ const ArticleMeta = ({ meta }) => {
                 {team.length > 0 && renderTeam(team)}
             </Box>
             <Box width={[1, 1, 1 / 2]} style={{ position: 'relative' }}>
+                {media && renderPreviewMedia(media)}
                 <H3 mt={[5, 5, 1]} pb={[3, 3, 0]} strip>
                     {description}
                 </H3>

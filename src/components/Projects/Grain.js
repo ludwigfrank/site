@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 const defaults = {
     patternSize: 64,
@@ -9,8 +8,6 @@ const defaults = {
     patternAlpha: 244,
     patternPixelDataLength: 64 * 64 * 4,
 }
-
-let frame = 0
 
 export default class Grain extends React.Component {
     constructor(props) {

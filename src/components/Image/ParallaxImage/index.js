@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import Observer from '@researchgate/react-intersection-observer'
+import { TweenMax } from 'gsap/all'
 
 try {
     require('intersection-observer')
@@ -25,8 +26,6 @@ const getPercentage = (startPos, endPos, currentPos) => {
     return displacement / distance
 }
 
-let TweenMax,
-    Power4 = null
 class ParallaxImage extends Component {
     state = {
         isIntersecting: false,
@@ -34,7 +33,6 @@ class ParallaxImage extends Component {
     }
 
     componentDidMount() {
-        import('gsap').then(res => (TweenMax = res.TweenMax))
         window.addEventListener('scroll', this.handleScroll)
     }
 
@@ -47,12 +45,10 @@ class ParallaxImage extends Component {
         const currentPos = y
         const percentage = 0.5 - getPercentage(startPos, endPos, currentPos)
 
-        if (TweenMax !== null && typeof TweenMax !== 'undefined') {
-            TweenMax.to(this.image, 1, {
-                ease: 'easeInOut',
-                y: 80 * percentage,
-            })
-        }
+        TweenMax.to(this.image, 1, {
+            ease: 'easeInOut',
+            y: 80 * percentage,
+        })
     }
 
     handleObserverChange = e => {
