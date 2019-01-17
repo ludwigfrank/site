@@ -147,16 +147,18 @@ export default class Carousel extends Component {
     renderContent = () => {
         const isVisible = !this.state.didDrag
 
-        anime({
-            targets: '#arm',
-            d: {
-                value: paths.armTwo,
-            },
-            duration: 990,
-            direction: 'alternate',
-            easing: 'easeOutQuad',
-            loop: true,
-        })
+        if (this.myRef.current) {
+            anime({
+                targets: '#arm',
+                d: {
+                    value: !this.state.didDrag ? paths.armTwo : paths.armThree,
+                },
+                duration: 992,
+                direction: 'alternate',
+                easing: 'easeOutQuad',
+                loop: true,
+            })
+        }
 
         return (
             <div
