@@ -9,6 +9,7 @@
         "@mdx-js/tag": "^0.16.6",
         "@rebass/grid": "^6.0.0-4",
         "@researchgate/react-intersection-observer": "^0.7.4",
+        "animejs": "^3.0.1",
         "flubber": "^0.4.2",
         "gatsby": "^2.0.55",
         "gatsby-image": "^2.0.25",

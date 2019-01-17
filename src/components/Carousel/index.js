@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import anime from 'animejs'
 
 import { Container, ArmWrapper } from './styles'
 import { Draggable, TweenMax } from 'gsap/all'
@@ -146,18 +147,16 @@ export default class Carousel extends Component {
     renderContent = () => {
         const isVisible = !this.state.didDrag
 
-        /*
-        if (this.myRef.current) {
-            TweenMax.to(this.myRef.current, 1, {
-                attr: {
-                    d: isVisible ? paths.armTwo : paths.armThree,
-                },
-                opacity: isVisible ? 1 : 0,
-                ease: isVisible ? 'ease-in-out' : 'ease-out',
-                repeat: isVisible ? -1 : 0,
-                yoyo: isVisible ? true : false,
-            })
-        }*/
+        anime({
+            targets: '#arm',
+            d: {
+                value: paths.armTwo,
+            },
+            duration: 1000,
+            direction: 'alternate',
+            easing: 'easeOutQuad',
+            loop: true,
+        })
 
         return (
             <div
@@ -171,35 +170,7 @@ export default class Carousel extends Component {
                             width="120"
                             overflow="overlay"
                         >
-                            <Arm id="arm" ref={this.myRef} d={paths.armOne}>
-                                {this.myRef.current && !this.state.didDrag && (
-                                    <animate
-                                        attributeName="d"
-                                        attributeType="XML"
-                                        repeatCount="indefinite"
-                                        fill="freeze"
-                                        animation-timing-function="ease-out"
-                                        dur="2s"
-                                        values={`${paths.armOne};${
-                                            paths.armTwo
-                                        };${paths.armOne};`}
-                                    />
-                                )}
-
-                                {this.state.didDrag && (
-                                    // hide animation on drag
-                                    <animate
-                                        attributeName="d"
-                                        attributeType="XML"
-                                        fill="freeze"
-                                        animation-timing-function="ease-out"
-                                        dur="500ms"
-                                        values={`${paths.armTwo}; ${
-                                            paths.armThree
-                                        };`}
-                                    />
-                                )}
-                            </Arm>
+                            <Arm id="arm" ref={this.myRef} d={paths.armOne} />
                         </svg>
                     </div>
                 </ArmWrapper>
