@@ -197,5 +197,35 @@ export const query = graphql`
                 }
             }
         }
+
+        use_case__01_01: file(
+            relativePath: { eq: "articles/us-iran/images/use_case__01_01.png" }
+        ) {
+            childImageSharp {
+                fluid(maxWidth: 1400, quality: 90) {
+                    ...DefaultImage
+                }
+            }
+        }
+
+        use_case__01_02: file(
+            relativePath: { eq: "articles/us-iran/images/use_case__01_02.png" }
+        ) {
+            childImageSharp {
+                fluid(maxWidth: 1400, quality: 90) {
+                    ...DefaultImage
+                }
+            }
+        }
+
+        use_case__01_03: file(
+            relativePath: { eq: "articles/us-iran/images/use_case__01_03.png" }
+        ) {
+            childImageSharp {
+                fluid(maxWidth: 1400, quality: 90) {
+                    ...DefaultImage
+                }
+            }
+        }
     }
 `

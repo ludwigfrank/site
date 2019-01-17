@@ -7,6 +7,7 @@ import { Container, ArmWrapper } from './styles'
 import { Draggable, TweenMax } from 'gsap/all'
 
 import ContentWrapper from '$components/Layout/ContentWrapper'
+import CustomImage from '$components/CustomImage'
 
 let ThrowProps
 
@@ -42,6 +43,7 @@ export default class Carousel extends Component {
 
     static propTypes = {
         images: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
+        showScrollIndicator: PropTypes.bool,
     }
 
     static defaultProps = {
@@ -49,6 +51,7 @@ export default class Carousel extends Component {
         rotateInterval: 4000,
         maxHeight: 600,
         images: false,
+        showScrollIndicator: true,
     }
 
     componentDidMount() {
@@ -165,17 +168,24 @@ export default class Carousel extends Component {
                 ref={element => (this.heightWrapper = element)}
                 style={{ position: 'relative' }}
             >
-                <ArmWrapper didDrag={this.state.didDrag}>
-                    <div id="arm-two">
-                        <svg
-                            viewBox="0 0 116 273"
-                            width="120"
-                            overflow="overlay"
-                        >
-                            <Arm id="arm" ref={this.myRef} d={paths.armOne} />
-                        </svg>
-                    </div>
-                </ArmWrapper>
+                {this.props.showScrollIndicator && (
+                    <ArmWrapper didDrag={this.state.didDrag}>
+                        <div id="arm-two">
+                            <svg
+                                viewBox="0 0 116 273"
+                                width="120"
+                                overflow="overlay"
+                            >
+                                <Arm
+                                    id="arm"
+                                    ref={this.myRef}
+                                    d={paths.armOne}
+                                />
+                            </svg>
+                        </div>
+                    </ArmWrapper>
+                )}
+
                 <div
                     key="position-ref"
                     ref={element => (this.positionRef = element)}
@@ -185,34 +195,56 @@ export default class Carousel extends Component {
                     key="slider"
                     my={[5]}
                 >
-                    {this.props.children.length > 1 ? (
-                        React.Children.map(
-                            this.props.children,
-                            (element, id) => {
-                                return (
-                                    <div
-                                        key={id}
-                                        style={{
-                                            display: 'inline-block',
-                                        }}
-                                        ref={element => {
-                                            this.atoms[id] = element
-                                        }}
-                                    >
-                                        {React.cloneElement(element, {
-                                            height: this.state.maxHeight,
-                                            maxHeight: '60vh',
-                                            borderRadius: true,
-                                            shadow: true,
-                                            isCarousel: true,
-                                        })}
-                                    </div>
-                                )
-                            }
-                        )
-                    ) : (
-                        <div />
-                    )}
+                    {this.props.children
+                        ? React.Children.map(
+                              this.props.children,
+                              (element, id) => {
+                                  return (
+                                      <div
+                                          key={id}
+                                          style={{
+                                              display: 'inline-block',
+                                          }}
+                                          ref={element => {
+                                              this.atoms[id] = element
+                                          }}
+                                      >
+                                          {React.cloneElement(element, {
+                                              height: this.state.maxHeight,
+                                              maxHeight: '60vh',
+                                              borderRadius: true,
+                                              shadow: true,
+                                              isCarousel: true,
+                                          })}
+                                      </div>
+                                  )
+                              }
+                          )
+                        : this.props.images.map(
+                              ({ src, description }, index) => {
+                                  return (
+                                      <div
+                                          key={index}
+                                          style={{
+                                              display: 'inline-block',
+                                          }}
+                                          ref={element => {
+                                              this.atoms[index] = element
+                                          }}
+                                      >
+                                          <CustomImage
+                                              key={index}
+                                              imgSrc={src}
+                                              description={description}
+                                              borderRadius
+                                              shadow
+                                              isCarousel
+                                              height={this.state.maxHeight}
+                                          />
+                                      </div>
+                                  )
+                              }
+                          )}
                 </Container>
             </div>
         )
