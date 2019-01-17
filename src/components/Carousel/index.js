@@ -146,6 +146,7 @@ export default class Carousel extends Component {
     renderContent = () => {
         const isVisible = !this.state.didDrag
 
+        /*
         if (this.myRef.current) {
             TweenMax.to(this.myRef.current, 1, {
                 attr: {
@@ -156,21 +157,49 @@ export default class Carousel extends Component {
                 repeat: isVisible ? -1 : 0,
                 yoyo: isVisible ? true : false,
             })
-        }
+        }*/
 
         return (
             <div
                 ref={element => (this.heightWrapper = element)}
                 style={{ position: 'relative' }}
             >
-                <ArmWrapper didDrag={false}>
+                <ArmWrapper didDrag={this.state.didDrag}>
                     <div id="arm-two">
                         <svg
                             viewBox="0 0 116 273"
                             width="120"
                             overflow="overlay"
                         >
-                            <Arm id="arm" ref={this.myRef} d={paths.armOne} />
+                            <Arm id="arm" ref={this.myRef} d={paths.armOne}>
+                                {this.myRef.current && !this.state.didDrag && (
+                                    <animate
+                                        attributeName="d"
+                                        attributeType="XML"
+                                        repeatCount="indefinite"
+                                        fill="freeze"
+                                        animation-timing-function="ease-out"
+                                        dur="2s"
+                                        values={`${paths.armOne};${
+                                            paths.armTwo
+                                        };${paths.armOne};`}
+                                    />
+                                )}
+
+                                {this.state.didDrag && (
+                                    // hide animation on drag
+                                    <animate
+                                        attributeName="d"
+                                        attributeType="XML"
+                                        fill="freeze"
+                                        animation-timing-function="ease-out"
+                                        dur="500ms"
+                                        values={`${paths.armTwo}; ${
+                                            paths.armThree
+                                        };`}
+                                    />
+                                )}
+                            </Arm>
                         </svg>
                     </div>
                 </ArmWrapper>
