@@ -99,11 +99,13 @@ export default class Carousel extends Component {
             this.setState({ intervalId })
         }
 
-        TweenMax.to(this.container, 1, {
-            x: 20,
-            yoyo: true,
-            repeat: -1,
-        })
+        if (this.props.showScrollIndicator) {
+            TweenMax.to(this.container, 1, {
+                x: 20,
+                yoyo: true,
+                repeat: -1,
+            })
+        }
     }
 
     componentWillUnmount() {

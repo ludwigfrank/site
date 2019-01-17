@@ -227,5 +227,25 @@ export const query = graphql`
                 }
             }
         }
+
+        use_case__02_01: file(
+            relativePath: { eq: "articles/us-iran/images/use_case__02_01.png" }
+        ) {
+            childImageSharp {
+                fluid(maxWidth: 1400, quality: 90) {
+                    ...DefaultImage
+                }
+            }
+        }
+
+        use_case__02_02: file(
+            relativePath: { eq: "articles/us-iran/images/use_case__02_02.png" }
+        ) {
+            childImageSharp {
+                fluid(maxWidth: 1400, quality: 90) {
+                    ...DefaultImage
+                }
+            }
+        }
     }
 `
