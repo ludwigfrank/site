@@ -156,34 +156,43 @@ We created the following use cases from interviews conducted with scholars.
 US-Scholar is interested in Martin Indyk’s role in the diplomatic relationship between the US and Iran.
 She hopes to find documents that he wrote or where he is mentioned, events that he participated in, or which functions he had in which US governmental unit.
 
+A) The main timeline introduces the archive to the scholar. The search bar is visible in a prominent location.
+
+B) Searching lazy loads possible results. Common results are preloaded to give the best user experience.
+
+C) The detail view shows documents and events the participant is mentioned in. Color coded periods indicate job positions.
+
 <Carousel
     wrapper
     showScrollIndicator={false}
     images={[
         {
             src: 'use_case__01_01',
-            description:
-                'The main timeline introduces the archive to the scholar. The search bar is visible in a prominent location.',
+            description: 'A',
         },
         {
             src: 'use_case__01_02',
-            description:
-                'Searching lazy loads possible results. Common results are preloaded to give the best user experience.',
+            description: 'B',
         },
         {
             src: 'use_case__01_03',
-            description:
-                'The detail view shows documents and events the participant is mentioned in. Color coded periods indicate job positions.',
+            description: 'C',
         },
     ]}
 />
 
 ## Case Two – Digging Deeper
 
-Iranian Scholar wants to know what the US involvement was in supplying chemical weapons to Iraq and to what extend that was know by the Iranian side.
+An Iranian Scholar wants to know what the US involvement was in supplying chemical weapons to Iraq and to what extend that was known by the Iranian side.
 He hopes to find original documents, personal accounts, and scholarly articles.
 
 Similar to case one, he searched and found, in this case the tag he was looking for.
+
+A. The detail view of the Iran tag shows participants, events and documents in which Iran played a role. Activating the tag focuses on documents that involve "chemical weapons".
+
+B. Clicking on a document shows the detail view, transscript and meta information about it.
+
+C. The sentiment analysis gives a glimpse into how US-Iran relations changed over the given time, preceding certain events.
 
 <Carousel
     wrapper
@@ -191,13 +200,15 @@ Similar to case one, he searched and found, in this case the tag he was looking 
     images={[
         {
             src: 'use_case__02_01',
-            description:
-                'The detail view of the Iran tag shows participants, events and documents in which Iran played a role. Activating the tag focuses on documents that involve "chemical weapons". ',
+            description: 'A',
         },
         {
             src: 'use_case__02_02',
-            description:
-                'Clicking on a document shows the detail view, transscript and meta information about it.',
+            description: 'B',
+        },
+        {
+            src: 'use_case__02_03',
+            description: 'C',
         },
     ]}
 />

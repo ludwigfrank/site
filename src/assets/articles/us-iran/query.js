@@ -247,5 +247,15 @@ export const query = graphql`
                 }
             }
         }
+
+        use_case__02_03: file(
+            relativePath: { eq: "articles/us-iran/images/use_case__02_03.png" }
+        ) {
+            childImageSharp {
+                fluid(maxWidth: 1400, quality: 90) {
+                    ...DefaultImage
+                }
+            }
+        }
     }
 `
