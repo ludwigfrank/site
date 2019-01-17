@@ -152,7 +152,7 @@ export default class Carousel extends Component {
             d: {
                 value: paths.armTwo,
             },
-            duration: 1000,
+            duration: 990,
             direction: 'alternate',
             easing: 'easeOutQuad',
             loop: true,
