@@ -100,10 +100,13 @@ export default class Carousel extends Component {
         }
 
         if (this.props.showScrollIndicator) {
-            TweenMax.to(this.container, 1, {
-                x: 20,
-                yoyo: true,
-                repeat: -1,
+            anime({
+                targets: '#container',
+                translateX: 20,
+                duration: 992,
+                direction: 'alternate',
+                easing: 'easeOutQuad',
+                loop: true,
             })
         }
     }
@@ -114,6 +117,9 @@ export default class Carousel extends Component {
 
     componentDidUpdate = (prevProps, prevState) => {
         const { carouselElements, maxHeight } = this.state
+        if (this.state.didDrag) {
+            anime.remove('#container')
+        }
 
         if (
             carouselElements !== prevState.carouselElements ||
@@ -193,6 +199,7 @@ export default class Carousel extends Component {
                     ref={element => (this.positionRef = element)}
                 />
                 <Container
+                    id="container"
                     ref={element => (this.container = element)}
                     key="slider"
                     my={[5]}
