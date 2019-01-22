@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import anime from 'animejs'
 
 import EventsWrapper from './EventsWrapper'
 import Controls from './Controls'
@@ -9,10 +10,20 @@ import { createPortal } from 'react-dom'
 import { TweenMax, Power4 } from 'gsap/all'
 import { easing, tween, styler } from 'popmotion'
 
+const animation = (element, s) => {
+    s.animationFinished = false
+    TweenMax.to(document.getElementById(element), 0.1, {
+        backgroundColor: '#00',
+        scale: 0.65,
+        yoyo: 1,
+        repeat: 1,
+        yoyo: true,
+        onComplete: () => (s.animationFinished = true),
+    })
+}
+
 class LightBox extends Component {
-    state = {
-        render: true,
-    }
+    animationFinished = true
 
     static propTypes = {
         currentImage: PropTypes.object,
@@ -44,14 +55,7 @@ class LightBox extends Component {
             event.stopPropagation()
         }
 
-        TweenMax.to(document.getElementById('arrow-right'), 0.1, {
-            backgroundColor: '#00',
-            scale: 0.75,
-            yoyo: 1,
-            repeat: 1,
-            yoyo: true,
-        })
-
+        this.animationFinished && animation('arrow-right', this)
         this.props.onNextClick()
     }
 
@@ -61,14 +65,7 @@ class LightBox extends Component {
             event.stopPropagation()
         }
 
-        TweenMax.to(document.getElementById('arrow-right'), 0.1, {
-            backgroundColor: '#00',
-            scale: 0.75,
-            yoyo: 1,
-            repeat: 1,
-            yoyo: true,
-        })
-
+        this.animationFinished && animation('arrow-left', this)
         this.props.onPrevClick()
     }
 
@@ -78,6 +75,7 @@ class LightBox extends Component {
     }
 
     handleKeyboardInput = event => {
+        event.stopImmediatePropagation()
         if (event.keyCode === 37) {
             // left
             this.prevImage(event)
@@ -99,12 +97,20 @@ class LightBox extends Component {
         this.props.onClose()
     }
 
+    shouldComponentUpdate = (nextProps, nextState) => {
+        if (nextProps.isOpen !== this.props.isOpen) return true
+        if (nextProps.currentImage !== this.props.currentImage) return true
+
+        return false
+    }
+
     renderImage = () => {
         const { currentImage, images, controls, onImageClick } = this.props
 
         return (
             <div>
                 <Image
+                    key={currentImage.src + 'lightbox'}
                     image={currentImage}
                     onRightSwipe={this.nextImage}
                     onLeftSwipe={this.prevImage}

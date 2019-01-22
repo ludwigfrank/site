@@ -7,6 +7,7 @@ export const gatsbyImageSharpFluidDefault = graphql`
         srcWebp
         srcSetWebp
         sizes
+        originalImg
         presentationWidth
         presentationHeight
     }

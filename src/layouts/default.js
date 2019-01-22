@@ -15,10 +15,22 @@ export default withTheme(({ children }) => {
             <Helmet
                 title={'Ludwig Frank Portfolio'}
                 meta={[
-                    { name: 'description', content: 'Ludwig Frank Portfolio' },
+                    {
+                        name: 'description',
+                        content:
+                            'The portfolio of Ludwig Frank, a User Experience Designer and Developer based in Berlin.',
+                    },
                     {
                         name: 'keywords',
-                        content: ['ludwig', 'frank', 'design', 'protfolio'],
+                        content: [
+                            'ludwig',
+                            'frank',
+                            'design',
+                            'protfolio',
+                            'ux',
+                            'ui',
+                            'developer',
+                        ],
                     },
                 ]}
             >

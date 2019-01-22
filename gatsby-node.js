@@ -9,6 +9,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
                 $components: path.resolve(__dirname, 'src/components'),
                 $theme: path.resolve(__dirname, 'src/theme'),
                 $images: path.resolve(__dirname, 'src/images'),
+                $utils: path.resolve(__dirname, 'src/lib/utils'),
             },
         },
     })

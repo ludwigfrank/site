@@ -8,10 +8,10 @@ import GlobalStyle from '../theme/GlobalStyle'
 import Layout from './default'
 import { StaticQuery, graphql } from 'gatsby'
 import ProjectFooter from '$components/ProjectFooter'
+import Helmet from 'react-helmet'
 
 export default ({ children, data, ...props }) => {
     const meta = props.pageContext.frontmatter
-    console.log(data)
     return (
         <StaticQuery
             query={graphql`
@@ -87,6 +87,18 @@ export default ({ children, data, ...props }) => {
                     }}
                 >
                     <Layout>
+                        <Helmet title={`${meta.title} | Ludwig Frank`}>
+                            <meta
+                                property="og:url"
+                                content={`http://ludwigfrank.com.com/${
+                                    meta.slug
+                                }`}
+                            />
+                            <meta
+                                property="og:title"
+                                content={`${meta.title} | Ludwig Frank`}
+                            />
+                        </Helmet>
                         <DataProvider value={data}>
                             <ArticleMeta meta={meta} />
                             <div>{children}</div>

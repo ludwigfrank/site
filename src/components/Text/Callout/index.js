@@ -4,14 +4,17 @@ import defaultStyles from '../defaultStyles'
 import headerDefaultStyles from '../Heading/headerDefaultStyle'
 import { media } from '$theme/spacing'
 
-const Styles = styled('span')`
+const Styles = styled('h1')`
     ${defaultStyles};
     ${headerDefaultStyles}
     color: ${props => props.theme.color.text.primary};
     font-size: 35px;
     line-height: 40px;
     font-weight: 400;
-
+    ${media.phone`
+            font-size: 28px;
+            line-height: 34px;
+        `}
 `
 
 const Callout = props => {
