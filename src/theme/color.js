@@ -5,12 +5,12 @@ export default {
     text: {
         primary: {
             [THEME_DARK]: '#fffdfd',
-            [THEME_LIGHT]: '#131a21',
+            [THEME_LIGHT]: '#1b1b33',
         },
 
         secondary: {
             [THEME_DARK]: 'rgba(0,0,0,.84)',
-            [THEME_LIGHT]: 'rgb(72, 73, 80)',
+            [THEME_LIGHT]: '#303246',
         },
 
         tertiary: {
