@@ -1,0 +1,10 @@
+const Friction = () => (
+  <a
+  href="https://framer.com/share/Unlock-Progress-Indication--lodZkGXto18ZWwdh2xvF?fullscreen=1"
+  style={{ textDecoration: 'none' }}
+>
+  Visit Prototypes
+</a>
+)
+
+export default Friction
